@@ -1,0 +1,124 @@
+﻿@model HomePageVM
+
+@{
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<header>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="background-image: url('../../images/BackgroundImage.jpeg')">
+        <div class="nav-wrapper" style="width:960px; height:400px;margin-right:auto;margin-left:auto;margin-top:0px;margin-bottom:0px">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                @foreach (var item in Model.NavbarItems)
+                {
+
+
+                    <!-- Slide One - Set the background image for this slide in the line below -->
+                    <div class="carousel-item active" style="        background-image: url('../../images/@item.ImagePath');
+">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>@item.Title</h3>
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                    <!-- Slide Two - Set the background image for this slide in the line below -->
+
+
+                }
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Page Content -->
+<!-- Marketing Icons Section -->
+<div class="mix_mastering">
+
+    <div class="row" style="color:lightblue; margin-top:150px">
+        @foreach (var item in Model.Layouts)
+        {
+
+            <div class="col-lg-4" style="height:500px; float:none; margin-top:100px  ">
+
+                <div class="card h-100" style="background-image: url('../../images/@item.ImagePath'); background-size: cover; width:400px">
+                    <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">@item.Title</h4>
+                    <div class="card-body">
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                    <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
+                        <a href="#" class="btn btn-primary">Daha fazla bilgi edin</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+
+
+
+
+
+<!-- /.row -->
+<!-- Portfolio Section -->
+<!-- /.row -->
+<!-- Features Section -->
+@foreach (var item in Model.Identities)
+{
+
+    <div class="container" style="color:wheat; margin-top:150px; background-color:#171515">
+        <div class="row" style="background-color: rgba(0,0,0,0.3); border-color: transparent">
+            <div class="col-lg-4" style="color:wheat">
+                <h2>@item.Name</h2>
+                <p>Berk Music Stüdyoları:</p>
+                <ul>
+                    <li>
+                        <strong>Müzik Mühendisi</strong>
+                    </li>
+                    <li>@item.Specifications1</li>
+                    <li>@item.Specifications2</li>
+                    <li>@item.Specifications3</li>
+                </ul>
+                <p>@item.Objective</p>
+            </div>
+            <div class="col-lg-8" style="float:left; margin-top:50px">
+                <img style="width:200px;height:150px" src="~/images/@item.ImagePath" />
+            </div>
+
+            @*<div class="col-lg-6">
+                    <img class="img-fluid rounded" src="" alt="" style="width:350px;height:250px; margin-top:35px;margin-left:100px">
+                </div>*@
+
+        </div>
+        <!-- /.row -->
+        <!-- Call to Action Section -->
+
+
+
+
+    </div>
+
+}
+
+
+<br />
+<br />
+<br />

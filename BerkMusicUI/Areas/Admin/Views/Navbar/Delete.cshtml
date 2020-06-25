@@ -1,0 +1,17 @@
+﻿@model NavbarItem
+@{
+    ViewData["Title"] = "Navbar Sil";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Delete" asp-controller="Navbar" method="post">
+            <p>
+                @Model.Title isimli bölümü silmek istediğinizden emin misiniz?
+            </p>
+            <button class="btn btn-danger">Evet</button>
+            <a asp-action="Index" asp-controller="Navbar" class="btn">İptal</a>
+        </form>
+    </div>
+</div>

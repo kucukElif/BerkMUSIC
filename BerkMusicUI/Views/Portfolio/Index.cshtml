@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Video>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container" style="margin-top:50px">
+    <div class="row">
+        <h2 style="color:white">Videolar</h2>
+        <div class="row" style="margin-top:25px">
+            <form asp-action="Index" asp-controller="Portfolio" method="post">
+                @*@foreach (var video in Model)
+                {*@
+                    <div class="col-lg-12  portfolio-item" style="margin-top:25px">
+                        <div class="card h-100" style="background-color: rgba(0,0,0,0.1); border-color: transparent">
+                            <a href="#">
+
+                                <video style="width:800px;height:600px" controls="controls">
+                                    <source src="~/videos/Sea%20-%2033194.mp4" type="video/mp4" />
+                                </video>
+
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title" style="color:white">
+                                   Başlık
+                                </h4>
+                                <p class="card-text" style="color:white">Konu</p>
+                            </div>
+                        </div>
+                    </div>
+                <hr />
+                @*}*@
+                </form>
+
+
+        </div>
+
+    </div>
+</div>
+   
