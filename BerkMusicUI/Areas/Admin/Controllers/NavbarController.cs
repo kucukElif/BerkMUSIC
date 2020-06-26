@@ -7,6 +7,7 @@ using BerkMusicUI.CustomHelper;
 using BLL.Abstract;
 using DAL;
 using DAL.Entity;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +49,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 }
                 else
                 {
-                    path = Path.Combine(Directory.GetCurrentDirectory(), image.FileName);
+                    //path = Path.Combine(Directory.GetCurrentDirectory(),  image.FileName);
+                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await image.CopyToAsync(stream);
@@ -95,7 +97,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 }
                 else
                 {
-                    path = Path.Combine(Directory.GetCurrentDirectory(), image.FileName);
+                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await image.CopyToAsync(stream);

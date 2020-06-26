@@ -28,4 +28,9 @@
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\production.jpg" />
+    <None Include="wwwroot\images\studioproduction.jpg" />
+  </ItemGroup>
+
 </Project>

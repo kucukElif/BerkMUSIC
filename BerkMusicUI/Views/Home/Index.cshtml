@@ -4,6 +4,7 @@
 
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 <header>
 
@@ -16,19 +17,22 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
+                @{   int i = 0;}
                 @foreach (var item in Model.NavbarItems)
                 {
+                    i++;
+                    var active = i == 1 ? "active" : "";
+                    
+                <div class="carousel-item @active" style="        background-image: url('../../images/@item.ImagePath');">
+    <div class="carousel-caption d-none d-md-block">
+        <h3>@item.Title</h3>
+        <p>@item.Description</p>
+    </div>
+</div>
 
-
-                    <!-- Slide One - Set the background image for this slide in the line below -->
-                    <div class="carousel-item active" style="        background-image: url('../../images/@item.ImagePath');
-">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>@item.Title</h3>
-                            <p>@item.Description</p>
-                        </div>
-                    </div>
-                    <!-- Slide Two - Set the background image for this slide in the line below -->
+                   
+                    
+                   
 
 
                 }
