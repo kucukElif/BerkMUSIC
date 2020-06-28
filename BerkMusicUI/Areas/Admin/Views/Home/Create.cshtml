@@ -12,7 +12,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6" style="text-align:center">
-                <div asp-validation-summary="All"></div>
+                @if (ViewBag.Success != null)
+                {
+                    <h5 class="text-success">@ViewBag.Success</h5>}
+                else
+                {
+                    <div asp-validation-summary="All"></div>
+                }
+
             </div>
         </div>
     </div>

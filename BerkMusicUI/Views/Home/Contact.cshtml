@@ -19,13 +19,14 @@
             <!-- Map Column -->
             <div class="col-lg-8 mb-4">
                 <!-- Embedded Google Map -->
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1iSdLs4yU4QPVTSNfr4BHgYkLsO9ExS89" width="700px" height="400"></iframe>
+                <iframe src="https://www.google.com/maps/d/u/3/embed?mid=1B8RJXYTy6CTd9mrl5kMYkr47fE3zIO9X" width="700" height="400"></iframe>
+               
             </div>
             <!-- Contact Details Column -->
             <div class="col-lg-4 mb-4">
                 <h3>İletişim Detayları</h3>
                 <p>
-                    Tantavi Mah. Menteşoğlu Cad. No:25 Kat:2 Terra Plaza
+                    Fahrettin Kerim Gökay Cad. No:24 Kat:3 Yıldız İş Hanı
                     <br>İstanbul/Kadıköy
                     <br>
                 </p>
@@ -39,7 +40,7 @@
                     </a>
                 </p>
                 <p>
-                    <abbr title="Hours">Çalışma Saatleri</abbr>: Pazartesi - Cuma: 9:00 AM to 5:00 PM
+                    <abbr title="Hours">Çalışma Saatleri</abbr>: Pazartesi - Pazar: 9:00 AM to 5:00 PM
                 </p>
             </div>
         </div>
@@ -63,9 +64,10 @@
 
                             <input asp-for="Name" type="text" required class="form-control" placeholder="Adınız Soyadınız" style="width:500px; height:40px" id="name">
                         </p>
-
                         <p>
-
+                            <input asp-for="PhoneNumber"  type="text" class="form-control" placeholder="Telefon Numaranız"   maxlength="11"  style="width:500px; height:40px" >
+                        </p>
+                        <p>
                             <input asp-for="Email" type="email" required class="form-control" placeholder="Email adresiniz" style="width:500px; height:40px" id="email">
                         </p>
                         <p>

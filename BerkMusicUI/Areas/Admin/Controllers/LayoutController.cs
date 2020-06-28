@@ -45,7 +45,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 }
                 else
                 {
-                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName)
+                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await image.CopyToAsync(stream);
@@ -91,7 +91,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 }
                 else
                 {
-                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName)
+                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await image.CopyToAsync(stream);

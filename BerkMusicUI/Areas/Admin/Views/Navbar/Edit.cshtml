@@ -1,6 +1,6 @@
 ﻿@model NavbarItem
 @{
-    ViewData["Title"] = "Navbar Güncelle";
+    ViewData["Title"] = "Slider Güncelle";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -34,8 +34,8 @@
                                 <input asp-for="Title" type="text" class="form-control" placeholder="Başlık Giriniz">
                             </div>
                             <div class="form-group">
-                                <label>Makale</label>
-                                <textarea asp-for="Description" type="text" class="form-control" style="width:500px; height:100px" placeholder="Açıklama"></textarea>
+                                <label>Konu</label>
+                                <input asp-for="Description" type="text" class="form-control" style=" height:50px" placeholder="Konu" />
                             </div>
 
 

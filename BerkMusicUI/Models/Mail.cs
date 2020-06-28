@@ -17,5 +17,7 @@ namespace BerkMusicUI.Models
 
         [Required(ErrorMessage = "Mesaj boş geçilemez.")]
         public string Message { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 }

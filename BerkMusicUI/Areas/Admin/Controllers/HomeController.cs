@@ -47,10 +47,12 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 var result = await userManager.CreateAsync(user, appUserCreateVM.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    ViewBag.Success = "Kullanıcı Oluşturuldu";
+                    
 
                 }
             }
+            
             return View();
         }
 

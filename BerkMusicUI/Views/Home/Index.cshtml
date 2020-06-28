@@ -6,10 +6,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
+
+
+    
+
 <header>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="background-image: url('../../images/BackgroundImage.jpeg')">
-        <div class="nav-wrapper" style="width:960px; height:400px;margin-right:auto;margin-left:auto;margin-top:0px;margin-bottom:0px">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+        <div class="nav-wrapper" style="height:700px ">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -17,22 +21,22 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
-                @{   int i = 0;}
+                @{ int i = 0;}
                 @foreach (var item in Model.NavbarItems)
                 {
                     i++;
                     var active = i == 1 ? "active" : "";
-                    
-                <div class="carousel-item @active" style="        background-image: url('../../images/@item.ImagePath');">
-    <div class="carousel-caption d-none d-md-block">
-        <h3>@item.Title</h3>
-        <p>@item.Description</p>
-    </div>
-</div>
 
-                   
-                    
-                   
+                    <div class="carousel-item @active" style="        background-image: url('../../images/@item.ImagePath'); height:800px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>@item.Title</h3>
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+
+
+
+
 
 
                 }
@@ -55,19 +59,19 @@
 <!-- Marketing Icons Section -->
 <div class="mix_mastering">
 
-    <div class="row" style="color:lightblue; margin-top:150px">
+    <div class="row" style="color:lightblue; margin-top:200px">
         @foreach (var item in Model.Layouts)
         {
 
-            <div class="col-lg-4" style="height:500px; float:none; margin-top:100px  ">
+            <div class="col-lg-4" style="height:550px; width:450px; float:none; margin-top:100px  ">
 
-                <div class="card h-100" style="background-image: url('../../images/@item.ImagePath'); background-size: cover; width:400px">
+                <div class="card h-100" style="background-image: url('../../images/@item.ImagePath'); background-size: cover; width:450px; height:800px">
                     <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">@item.Title</h4>
                     <div class="card-body">
                         <p class="card-text">@item.Description</p>
                     </div>
                     <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
-                        <a href="#" class="btn btn-primary">Daha fazla bilgi edin</a>
+                        <a href="/Home/Contact" class="btn btn-primary">Bizimle İletişime Geçin</a>
                     </div>
                 </div>
             </div>
@@ -92,10 +96,10 @@
         <div class="row" style="background-color: rgba(0,0,0,0.3); border-color: transparent">
             <div class="col-lg-4" style="color:wheat">
                 <h2>@item.Name</h2>
-                <p>Berk Music Stüdyoları:</p>
+                <p>ElBerk Music Stüdyoları:</p>
                 <ul>
                     <li>
-                        <strong>Müzik Mühendisi</strong>
+                        <strong>Ses Mühendisi</strong>
                     </li>
                     <li>@item.Specifications1</li>
                     <li>@item.Specifications2</li>
@@ -103,8 +107,8 @@
                 </ul>
                 <p>@item.Objective</p>
             </div>
-            <div class="col-lg-8" style="float:left; margin-top:50px">
-                <img style="width:200px;height:150px" src="~/images/@item.ImagePath" />
+            <div class="col-lg-8" style="float:left; margin-top:10px">
+                <img style=" width:200px;height:200px; margin-left:50px" src="~/images/@item.ImagePath" />
             </div>
 
             @*<div class="col-lg-6">

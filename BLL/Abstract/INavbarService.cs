@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BLL.Abstract
 {
-   public interface INavbarService
+    public interface INavbarService
     {
 
         List<NavbarItem> GetActive();

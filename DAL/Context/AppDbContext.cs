@@ -21,6 +21,7 @@ namespace DAL.Context
         public DbSet<Layout> Layouts { get; set; }
         public DbSet<Identity> Identities { get; set; }
         public DbSet<NavbarItem> NavbarItems { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
         public override int SaveChanges()
         {

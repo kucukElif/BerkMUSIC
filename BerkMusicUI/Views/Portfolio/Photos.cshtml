@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Photo>
+@{
+    ViewData["Title"] = "Photos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/lightbox.css" rel="stylesheet" />
+<link href="~/Photos.css" rel="stylesheet" />
+<script src="~/js/lightbox-plus-jquery.js"></script>
+<div class="container">
+    <div class="gallery">
+        <h3 style="color:wheat; margin-top:25px">Fotoğraf Galerisi</h3>
+        <div class="row" style="margin-top:5%">
+            @foreach (var photo in Model)
+            {
+                <div class="col-lg-4 col-mb-6 mb-4">
+
+                    <a href="~/images/@photo.ImagePath" data-lightbox="mygallery"><img src="~/images/@photo.ImagePath" style="width:350px; height:250px" /></a>
+                </div>
+
+            }
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+

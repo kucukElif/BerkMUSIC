@@ -46,16 +46,17 @@ namespace BerkMusicUI.Controllers
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.Credentials = new NetworkCredential("berkmusic.playmusic@gmail.com", "Elif2014*");
+                client.Credentials = new NetworkCredential("elberkmusic@gmail.com", "*");
                 client.EnableSsl = true;
                 MailMessage msg = new MailMessage();
-                msg.From = new MailAddress(mail.Email, " " + mail.Name);
-                msg.To.Add("berkmusic.playmusic@gmail.com");
+                msg.From = new MailAddress(mail.Email, " " + mail.Name+" "+mail.PhoneNumber);
+                msg.To.Add("elberkmusic@gmail.com");
                 msg.Subject = mail.Subject + " " + mail.Email;
                 msg.Body = mail.Message;
+              
                 client.Send(msg);
                 MailMessage msg1 = new MailMessage();
-                msg1.From = new MailAddress("berkmusic.playmusic@gmail.com", "Berk Music");
+                msg1.From = new MailAddress("elberkmusic@gmail.com", "Berk Music");
                 msg1.To.Add(mail.Email);
                 msg1.Subject = "Berk Müzik Mail'inize Cevap";
                 msg1.Body = ("Teşekkürler mail'iniz bize ulaştı size en kısa sürede dönüş yapacağız.");
@@ -71,6 +72,10 @@ namespace BerkMusicUI.Controllers
                 return View();
             }
         }
+
+       
+
+       
     }
 }
 

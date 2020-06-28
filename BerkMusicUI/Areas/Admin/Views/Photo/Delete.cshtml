@@ -1,0 +1,17 @@
+﻿@model Photo
+@{
+    ViewData["Title"] = "Fotoğraf Sil";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Delete" asp-controller="Photo" method="post">
+            <p>
+                @Model.ImagePath resmini silmek istediğinizden emin misiniz?
+            </p>
+            <button class="btn btn-danger">Evet</button>
+            <a asp-action="Index" asp-controller="Photo" class="btn">İptal</a>
+        </form>
+    </div>
+</div>

@@ -33,10 +33,12 @@ namespace BerkMusicUI
             services.AddMvc(x => x.EnableEndpointRouting = false);
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("BerkMusicUI")));
             services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<AppDbContext>();
+            
             services.AddTransient<IPostService, PostRepository>();
             services.AddTransient<ILayoutService, LayoutService>();
             services.AddTransient<IIdentityService, IdentityRepository>();
             services.AddTransient<INavbarService,NavbarRepository>();
+            services.AddTransient<IPhotoService, PhotoRepository>();
 
             //Identity
 
