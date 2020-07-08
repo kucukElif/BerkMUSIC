@@ -29,7 +29,15 @@
                         </div>
                     </div>
                     <form role="form" asp-action="Edit" asp-controller="Photo" method="post" enctype="multipart/form-data">
-                      
+                        <div class="form-group">
+                            <label>Resim Ekle</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="image" />
+                                    <label class="custom-file-label">Fotoğraf Ekle</label>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- /.box-body -->
 

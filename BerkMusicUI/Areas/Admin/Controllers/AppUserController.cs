@@ -11,8 +11,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
 {
    
         [Area("Admin")]
-        [Authorize(Roles = "Admin")]
-        public class AppUserController : Controller
+    [Authorize(Roles = "Admin")]
+    public class AppUserController : Controller
         {
             private readonly UserManager<AppUser> userManager;
             private readonly RoleManager<AppUserRole> roleManager;

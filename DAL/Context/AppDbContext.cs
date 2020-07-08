@@ -1,5 +1,6 @@
 ﻿using DAL.Entity;
 using DAL.Entity.Base;
+using DAL.Entity.Enum;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,6 +23,8 @@ namespace DAL.Context
         public DbSet<Identity> Identities { get; set; }
         public DbSet<NavbarItem> NavbarItems { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Arrangement> Arrangements { get; set; }
+        public DbSet<DrumLesson> DrumLessons { get; set; }
 
         public override int SaveChanges()
         {

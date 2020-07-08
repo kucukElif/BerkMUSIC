@@ -39,6 +39,8 @@ namespace BerkMusicUI
             services.AddTransient<IIdentityService, IdentityRepository>();
             services.AddTransient<INavbarService,NavbarRepository>();
             services.AddTransient<IPhotoService, PhotoRepository>();
+            services.AddTransient<IArrangementService, ArrangementRepository>();
+            services.AddTransient<IDrumService, DrumRepository>();
 
             //Identity
 
