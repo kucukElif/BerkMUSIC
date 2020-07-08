@@ -45,7 +45,7 @@ namespace BerkMusicUI.Controllers
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.Credentials = new NetworkCredential("elberkmusic@gmail.com", "Elif2014*");
+                client.Credentials = new NetworkCredential("elberkmusic@gmail.com", "*");
                 client.EnableSsl = true;
                 MailMessage msg = new MailMessage();
                 msg.From = new MailAddress(mail.Email, " " + mail.Name+" "+mail.PhoneNumber);
