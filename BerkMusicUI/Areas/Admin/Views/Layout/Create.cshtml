@@ -1,6 +1,6 @@
 ﻿@model Layout
 @{
-    ViewData["Title"] = "Ses Kayıt Sayfası Ekle";
+    ViewData["Title"] = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -22,7 +22,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Açıklama Ekle</label>
-                                <textarea asp-for="Description" type="text" class="form-control" style="width:500px; height:500px" placeholder="Makale"></textarea>
+                                <textarea asp-for="Description" type="text" class="form-control"  placeholder="Konu" style="width:500px; height:700px"></textarea>
                             </div>
 
 
@@ -61,4 +61,3 @@
     </script>
 
 }
-

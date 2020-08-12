@@ -1,9 +1,8 @@
 ﻿@model Layout
 @{
-    ViewData["Title"] = "Ses Kayıt Sayfası  Güncelle";
+    ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
 <div class="card">
 
     <div class="card-body">
@@ -34,8 +33,8 @@
                                 <input asp-for="Title" type="text" class="form-control" placeholder="Başlık Giriniz">
                             </div>
                             <div class="form-group">
-                                <label>Makale</label>
-                                <textarea asp-for="Description" type="text" class="form-control" style="width:500px; height:500px" placeholder="Açıklama"></textarea>
+                                <label>Konu</label>
+                                <textarea asp-for="Description" type="text" class="form-control" placeholder="Konu" style="width:500px; height:700px"></textarea>
                             </div>
 
 
@@ -74,3 +73,4 @@
     </script>
 
 }
+

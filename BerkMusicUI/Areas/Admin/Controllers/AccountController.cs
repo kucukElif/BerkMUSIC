@@ -43,6 +43,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                     }
                 }
             }
+
             return View();
         }
 
@@ -51,7 +52,12 @@ namespace BerkMusicUI.Areas.Admin.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("Login","Account");
         }
-        
+        public async Task<IActionResult> AccessDenied()
+        {
+            return View();
+        }
+
+
     }
 }
 

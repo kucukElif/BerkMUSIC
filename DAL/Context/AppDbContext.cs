@@ -20,12 +20,13 @@ namespace DAL.Context
         public DbSet<Post> Posts { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Layout> Layouts { get; set; }
+        public DbSet<FullLayout> FullLayouts { get; set; }
+        public DbSet<LayoutDetail> LayoutDetails { get; set; }
+        public DbSet<Price> Prices { get; set; }
         public DbSet<Identity> Identities { get; set; }
         public DbSet<NavbarItem> NavbarItems { get; set; }
         public DbSet<Photo> Photos { get; set; }
-        public DbSet<Arrangement> Arrangements { get; set; }
-        public DbSet<DrumLesson> DrumLessons { get; set; }
-
+       
         public override int SaveChanges()
         {
             var modifiedEntries = ChangeTracker.Entries().Where(x => x.State == EntityState.Modified || x.State == EntityState.Added).ToList();

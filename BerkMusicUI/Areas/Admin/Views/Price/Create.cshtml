@@ -1,0 +1,72 @@
+﻿@model Price
+@{
+    ViewData["Title"] = "Kimlik Bilgisi Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form role="form" asp-action="Create" asp-controller="Price" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Fiyat Başlığı</label>
+                                <input asp-for="Title" type="text" class="form-control" placeholder="Başlık Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label>Fiyat</label>
+                                <input asp-for="SinglePrice" type="text" class="form-control" placeholder="Fiyat Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label>Açıklama Ekle</label>
+                                <input asp-for="Description1" type="text" class="form-control" placeholder="Açılama Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label>Açıklama Ekle</label>
+                                <input asp-for="Description2" type="text" class="form-control" placeholder="Açılama Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label>Açıklama Ekle</label>
+                                <input asp-for="Description3" type="text" class="form-control" placeholder="Açılama Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label>Açıklama Ekle</label>
+                                <input asp-for="Description4" type="text" class="form-control" placeholder="Açılama Giriniz">
+                            </div>
+
+                          
+                        </div>
+
+                        <!-- /.box-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Ekle</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+                <!-- Form Element sizes -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+    </script>
+
+}
+
+

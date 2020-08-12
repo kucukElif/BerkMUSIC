@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BerkMusicUI.Models;
 using BerkMusicUI.Models;
 using BLL.Abstract;
+using DAL.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BerkMusicUI.Controllers
@@ -16,23 +17,40 @@ namespace BerkMusicUI.Controllers
        
         private readonly IIdentityService identityService;
         private readonly INavbarService navbarService;
+        private readonly ILayoutService layoutService;
+        private readonly IPriceService priceService;
 
-        public HomeController( IIdentityService identityService, INavbarService navbarService)
+        public HomeController( IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService)
         {
            
             this.identityService = identityService;
             this.navbarService = navbarService;
+            this.layoutService = layoutService;
+            this.priceService = priceService;
         }
         public IActionResult Index()
         {
             HomePageVM homePageVM = new HomePageVM();
             homePageVM.Identities = identityService.GetActive();
             homePageVM.NavbarItems = navbarService.GetActive();
-
+            homePageVM.Layouts = layoutService.GetActive();
             return View(homePageVM);
         }
 
-        public IActionResult Contact()
+        public IActionResult FullLayout(Guid id)
+        {
+            FullLayoutVM fullLayoutVM = new FullLayoutVM();
+            fullLayoutVM.Layout = layoutService.GetById(id);
+            fullLayoutVM.LayoutDetails = layoutService.GetLayoutDetails();
+            return View(fullLayoutVM);
+            
+        }
+
+        public IActionResult PriceList()
+        {
+            return View(priceService.GetActive());
+        }
+            public IActionResult Contact()
         {
             return View();
 

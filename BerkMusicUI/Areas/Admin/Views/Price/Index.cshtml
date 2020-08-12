@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Price>
+@{
+    ViewData["Title"] = "Fiyat Düzenlemeleri";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-header">
+        <a asp-action="Create" asp-controller="Price" class="btn btn-success float-right">Kimlik Bilgisi Ekle</a>
+    </div>
+    <div class="card-body">
+        <table id="producttable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Fiyat</th>
+                    <th>Açıklama Alanı</th>
+                    <th>Açıklama Alanı</th>
+                    <th>Açıklama Alanı</th>
+                    <th>Açıklama Alanı</th>
+
+                    <th></th>
+
+                </tr>
+            </thead>
+            @foreach (var p in Model)
+            {
+
+                <tbody>
+                    <tr>
+                        <td>@p.Title</td>
+
+                        <td>@p.SinglePrice</td>
+                        <td>@p.Description1</td>
+                        <td>@p.Description2</td>
+                        <td>@p.Description3</td>
+                        <td>@p.Description4</td>
+
+                        <td>
+                            <a asp-action="Edit" asp-controller="Price" asp-route-id="@p.ID" class="btn btn-sm btn-warning">Düzenle</a>
+
+                            <a asp-action="Delete" asp-controller="Price" asp-route-id="@p.ID" class=" btn btn-sm btn-danger">Sil</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>
+
+

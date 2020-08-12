@@ -12,5 +12,8 @@ namespace BerkMusicUI.Models
   
         public List<NavbarItem> NavbarItems { get; set; }
 
+        public List<Layout> Layouts { get; set; }
+
+
     }
 }

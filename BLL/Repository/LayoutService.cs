@@ -24,7 +24,7 @@ namespace BLL.Repository
             context.Layouts.Add(entity);
             context.SaveChanges();
         }
-
+     
         public bool Any(Expression<Func<Layout, bool>> exp)
         {
            return context.Layouts.Any(exp);
@@ -34,16 +34,26 @@ namespace BLL.Repository
         {
             return context.Layouts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
         }
+        public List<FullLayout> GetFullLayout()
+        {
+            return context.FullLayouts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+        }
 
+       
         public Layout GetById(Guid id)
         {
-            return context.Layouts.FirstOrDefault(x => x.ID == id);
+            return context.Layouts.Where(x => x.ID == id).FirstOrDefault();
         }
+
+      
 
         public List<Layout> GetDefault(Expression<Func<Layout, bool>> exp)
         {
             return context.Layouts.Where(exp).ToList();
         }
+
+       
+
 
         public void Remove(Guid id)
         {
@@ -61,10 +71,47 @@ namespace BLL.Repository
             }
         }
 
+      
+
         public void Update(Layout entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
+        }
+
+        public List<LayoutDetail> GetLayoutDetails()
+        {
+            return context.LayoutDetails.ToList();
+        }
+
+        public List<Layout> GetLayouts()
+        {
+            return context.Layouts.ToList();
+        }
+
+        public void AddLayoutDestail(LayoutDetail entity)
+        {
+
+            context.LayoutDetails.Add(entity);
+            context.SaveChanges();
+        }
+
+        public void UpdateFullLayout(LayoutDetail entity)
+        {
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.SaveChanges();
+        }
+
+        public LayoutDetail GetDetailByID(Guid id)
+        {
+            return context.LayoutDetails.Where(x => x.ID == id).FirstOrDefault();
+        }
+
+        public void RemoveDetail(Guid id)
+        {
+            LayoutDetail layout = GetDetailByID(id);
+            layout.Status = DAL.Entity.Enum.Status.Deleted;
+            UpdateFullLayout(layout);
         }
     }
 }

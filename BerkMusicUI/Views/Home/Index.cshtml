@@ -13,35 +13,46 @@
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:800px">
         <div class="nav-wrapper" style="height:600px ">
-            
-                <ol class="carousel-indicators">
+           
+            <ol class="carousel-indicators">
 
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                @{int j = 0;}
+                @foreach (var n in Model.NavbarItems)
+                {
+                    j++;
+                    var active = j == 1 ? "active" : "";
+                    <li data-target="#carouselExampleIndicators" data-slide-to="j" class="@active"></li>
+
+            }
+
+
+            @*<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>*@
 
                 </ol>
-                <div class="carousel-inner" role="listbox">
-                    @{ int i = 0;}
-                    @foreach (var item in Model.NavbarItems)
-                    {
-                        i++;
-                        var active = i == 1 ? "active" : "";
+            <div class="carousel-inner" role="listbox">
 
 
-                        <div class="carousel-item @active" style="        background-image: url('../../images/@item.ImagePath'); height:800px">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h3>@item.Title</h3>
-                                <p>@item.Description</p>
-                            </div>
+                @{ int i = 0;}
+                @foreach (var item in Model.NavbarItems)
+                {
+                    i++;
+                    var active = i == 1 ? "active" : "";
+
+                    <div class="carousel-item @active" style="        background-image: url('../../images/@item.ImagePath'); height:800px">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>@item.Title</h3>
+                            <p>@item.Description</p>
                         </div>
+                    </div>
+
+                }
 
 
 
 
 
-
-                    }
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -53,7 +64,9 @@
 
 
                 </div>
+            
             </div>
+            
     </div>
 
 
@@ -62,60 +75,32 @@
 <!-- Page Content -->
 <!-- Marketing Icons Section -->
 <div class="mix_mastering">
-
+   
     <div class="row" style="color:lightblue; margin-top:50px" id="card">
 
+        @foreach (var item in Model.Layouts)
+        {
+            <div class="col-lg-4" style="height:550px; width:450px; float:none; margin-top:100px">
 
-        <div class="col-lg-4" style="height:550px; width:450px; float:none; margin-top:100px">
+                <div class="card h-100" style="background-image: url('../../images/@item.ImagePath'); background-size: cover; width: 450px; height: 800px">
+                    <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">@item.Title</h4>
+                    <div class="card-body">
+                        <p class="card-text">@item.Description</p>
+                    </div>
+                    <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
+                        <a asp-controller="Home" asp-action="FullLayout" asp-route-id="@item.ID" class="btn btn-primary">Daha fazla bilgi için tıklayınız</a>
+                    </div>
+                </div>
 
-            <div class="card h-100" style="background-image: url('../../images/whatsapp image 2020-06-28 at 13.18.17.jpeg'); background-size: cover; width: 450px; height: 800px">
-                <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">Ses Kayıt Stüdyosu</h4>
-                <div class="card-body">
-                    <p class="card-text">Ses kayıt stüdyomuz müzikle uğraşanlar için rahat ve konforlu ortamda butik stüdyo içinde hem amatör hem profesyonel, full akustik yalıtımlı ya da doğal reverb olan ortamda kayıt imkanı sağlamaktadır.</p>
-                    <p>Stüdyomuzda Eylül ayında görüşmek üzere.</p>
-                </div>
-                <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
-                    <a asp-controller="Layout" asp-action="Record" class="btn btn-primary">Daha fazla bilgi için tıklayınız</a>
-                </div>
             </div>
+        }
+        </div>
+           
+
+
 
 
         </div>
-
-
-        <div class="col-lg-4 " style="height:550px; width:450px; float:none; margin-top:100px  ">
-
-            <div class="card h-100" style="background-image: url('../../images/whatsapp image 2020-06-28 at 13.18.18 (2) - kopya.jpeg');
-        background-size: cover;
-        width: 450px;
-        height: 800px">
-                <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">Aranjörlük</h4>
-                <div class="card-body">
-                    <p class="card-text">Her tarzda ses kayıtlarını, demo kayıtlarını profesyonel olarak düzenlenmek isteyenler için online hizmet veya stüdyomuzda  mix ve mastering hizmeti vermekteyiz. </p>
-                </div>
-                <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
-                    <a asp-controller="Layout" asp-action="Arrangement"  class="btn btn-primary" id="card">Daha fazla bilgi için tıklayınız</a>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-lg-4" style="height:550px; width:450px; float:none; margin-top:100px  ">
-
-            <div class="card h-100" style="background-image: url('../../images/whatsapp image 2020-06-28 at 13.18.10.jpeg'); background-size: cover; width: 450px; height: 800px ">
-                <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">Bateri Kursu</h4>
-                <div class="card-body">
-                    <p class="card-text">15 yıllık bateri tecrübesi ve 3 senelik özel bateri eğitmenliğiyle amatör başlanyanlara veya "Ben zaten çalıyorum çok iyiyim." diyenlere ileri seviye bateri derslerimiz mevcuttur. </p>
-                </div>
-                <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
-                    <a asp-controller="Layout" asp-action="DrumLesson" class="btn btn-primary" id="card">Daha fazla bilgi için tıklayınız</a>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
 
 
 
@@ -148,9 +133,9 @@
                 <img style=" width:200px;height:200px; margin-left:50px" src="~/images/@item.ImagePath" />
             </div>
 
-            @*<div class="col-lg-6">
+            <div class="col-lg-6">
                     <img class="img-fluid rounded" src="" alt="" style="width:350px;height:250px; margin-top:35px;margin-left:100px">
-                </div>*@
+                </div>
 
         </div>
         <!-- /.row -->

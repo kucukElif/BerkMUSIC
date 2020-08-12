@@ -36,11 +36,15 @@ namespace BerkMusicUI
             
             services.AddTransient<IPostService, PostRepository>();
             services.AddTransient<ILayoutService, LayoutService>();
+            services.AddTransient<IFullLayoutService, FullLayoutService>();
+
             services.AddTransient<IIdentityService, IdentityRepository>();
             services.AddTransient<INavbarService,NavbarRepository>();
             services.AddTransient<IPhotoService, PhotoRepository>();
-            services.AddTransient<IArrangementService, ArrangementRepository>();
-            services.AddTransient<IDrumService, DrumRepository>();
+
+            services.AddTransient<IPriceService, PriceRepository>();
+            //services.AddTransient<IFullLayoutService, FullLayoutRepository>();
+          
 
             //Identity
 
@@ -66,6 +70,7 @@ namespace BerkMusicUI
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseAuthentication();
             app.UseAuthorization();//kimlik doðrulama
             app.UseRouting();

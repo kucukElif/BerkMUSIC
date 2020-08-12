@@ -8,7 +8,7 @@ using DAL.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using BerkMusicUI.Areas.Admin.Models.ViewModels;
 namespace BerkMusicUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -16,16 +16,83 @@ namespace BerkMusicUI.Areas.Admin.Controllers
     public class LayoutController : Controller
     {
         private readonly ILayoutService layoutService;
+        private readonly IFullLayoutService fullLayoutService;
 
-        public LayoutController(ILayoutService layoutService)
+        public LayoutController(ILayoutService layoutService, IFullLayoutService fullLayoutService)
         {
             this.layoutService = layoutService;
+            this.fullLayoutService = fullLayoutService;
         }
+
+
+
         public IActionResult Index()
         {
             return View(layoutService.GetActive());
         }
+        
+         
+        public IActionResult FullLayout(Guid id)
+        {
+            LayoutVM layoutVM = new LayoutVM();
+            layoutVM.Layout = layoutService.GetById(id);
+            layoutVM.LayoutDetails = layoutService.GetLayoutDetails();
 
+            return View(layoutVM);
+        }
+        public IActionResult CreateFullLayout()
+        {
+           
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateFullLayout(FullLayout model, IFormFile image, Layout layout, Guid id)
+        {
+            try
+            {
+                string path;
+                if (image == null)
+                {
+                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", "noimage.jpg");
+                    model.ImagePath = "noimage.jpg";
+                }
+                else
+                {
+                    //path = Path.Combine(Directory.GetCurrentDirectory(),  image.FileName);
+                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await image.CopyToAsync(stream);
+                    }
+                    model.ImagePath = image.FileName;
+                }
+                fullLayoutService.Add(model);
+                var l = layoutService.GetById(id);
+               var fl = fullLayoutService.GetById(model.ID);
+                LayoutDetail ld = new LayoutDetail();
+             
+                ld.FullLayout = fl;
+                ld.FullLayoutID = fl.ID;
+                ld.Title = fl.Title;
+                ld.Description = fl.Description;
+                ld.ImagePath = fl.ImagePath;
+                ld.Layout = l;
+                ld.LayoutID = l.ID;
+                layoutService.AddLayoutDestail(ld);
+                return RedirectToAction("Index");
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return View();
+            }
+
+        }
+  
         public IActionResult Create()
         {
             return View();
@@ -45,6 +112,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 }
                 else
                 {
+                    //path = Path.Combine(Directory.GetCurrentDirectory(),  image.FileName);
                     path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
@@ -52,6 +120,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                     }
                     model.ImagePath = image.FileName;
                 }
+
+
                 layoutService.Add(model);
                 return RedirectToAction("Index");
 
@@ -64,7 +134,6 @@ namespace BerkMusicUI.Areas.Admin.Controllers
             }
 
         }
-
         public IActionResult Edit(Guid id)
         {
             Layout layout = layoutService.GetById(id);
@@ -107,10 +176,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 return View();
 
             }
-
         }
-
-
 
         public ActionResult Delete(Guid id)
         {
@@ -134,3 +200,4 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         }
     }
 }
+
