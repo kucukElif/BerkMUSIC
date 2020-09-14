@@ -5,12 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.Abstract;
 using DAL.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BerkMusicUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class FullPostController : Controller
     {
         private readonly IFullLayoutService fullLayoutService;

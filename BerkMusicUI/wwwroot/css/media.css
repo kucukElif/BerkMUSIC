@@ -1,0 +1,27 @@
+﻿body {
+}
+.media-section {
+    position: absolute;
+    left: 49%;
+    transform: translate(-53%,-53%);
+}
+.media-section li {
+    list-style: none;
+    margin: 10px 30px;
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px 20px;
+    color: #fff;
+    /*   border:1px solid #fff;*/
+}
+.media-section a {
+    color: #fff;
+}
+    .media-section a:hover {
+        color: #292929;
+    }
+.media-section li:hover {
+    color: #292929;
+    /*    border:1px solid #292929;
+*/ transition: .5s;
+}

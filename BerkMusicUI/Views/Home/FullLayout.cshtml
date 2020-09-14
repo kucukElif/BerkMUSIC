@@ -3,37 +3,40 @@
     ViewData["Title"] = "Record";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
-
-    <div class="row">
-
-
-
-        @foreach (var item in Model.LayoutDetails)
-        {
-            @if (item.LayoutID == Model.Layout.ID)
+    <div class="container">
+        <div class="row align-items-center my-5">
+            @foreach (var item in Model.FullLayouts)
             {
+                @if (item.LayoutDetails.LayoutID == Model.Layout.ID)
+                {
 
-                <section class="py-5">
-                    <div class="container">
-                        <h1 style="color:white">@item.Title</h1>
-                        <br />
+                    <!-- /.col-lg-8 -->
+                    <div class="col-lg-6">
 
-                        <p style="color:wheat">@item.Description</p>
+
+
+
+
+                        <section class="py-5">
+                            <div class="container">
+                                <h1 style="color:white">@item.Title</h1>
+                                <br />
+
+                                <p style="color:wheat">@item.Description</p>
+                            </div>
+                        </section>
+
+
+
                     </div>
-                </section>
-                <div class="py-5 bg-image-full">
-                    <img class="card-img-top" src="~/images/@item.ImagePath" alt="" style="height:500px">
-                    <!-- Put anything you want here! There is just a spacer below for demo purposes! -->
-                    <div style="height: 50px;"></div>
-                </div>
 
+                    <div class="col-lg-6">
+                        <img class="card-img-top" src="~/images/@item.ImagePath" alt="" style="height:600px">
+                    </div>
+                }
 
             }
-            
-        }
-
-</div>
-</div>
-<br />
-<br />
+        </div>
+    </div>
+        <br />
+        <br />

@@ -23,6 +23,12 @@ namespace BLL.Repository
             context.SaveChanges();
         }
 
+        public void AddLayoutDetail(LayoutDetail entity)
+        {
+            context.LayoutDetails.Add(entity);
+            context.SaveChanges();
+        }
+
         public bool Any(Expression<Func<FullLayout, bool>> exp)
         {
             return context.FullLayouts.Any(exp);
@@ -43,10 +49,11 @@ namespace BLL.Repository
             return context.FullLayouts.Where(exp).ToList();
         }
 
-        //public List<FullLayout> ListByLayout(Guid id)
-        //{
-        //    return context.FullLayouts.Where(x => x.LayoutID == id).ToList();
-        //}
+      
+        public LayoutDetail GetLayoutDetail(Guid id)
+        {
+            return context.LayoutDetails.FirstOrDefault(x => x.ID == id);
+        }
 
         public void Remove(Guid id)
         {

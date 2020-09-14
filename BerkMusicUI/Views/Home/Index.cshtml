@@ -9,11 +9,11 @@
 
 
 <link href="~/css/Card.css" rel="stylesheet" />
-<header>
+<div class="index_header">
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:800px">
         <div class="nav-wrapper" style="height:600px ">
-           
+
             <ol class="carousel-indicators">
 
                 @{int j = 0;}
@@ -23,14 +23,14 @@
                     var active = j == 1 ? "active" : "";
                     <li data-target="#carouselExampleIndicators" data-slide-to="j" class="@active"></li>
 
-            }
+                }
 
 
-            @*<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>*@
+                @*<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>*@
 
-                </ol>
+            </ol>
             <div class="carousel-inner" role="listbox">
 
 
@@ -53,29 +53,29 @@
 
 
 
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
 
 
-                </div>
-            
             </div>
-            
+
+        </div>
+
     </div>
 
 
-</header>
+</div>
 
 <!-- Page Content -->
 <!-- Marketing Icons Section -->
 <div class="mix_mastering">
-   
+
     <div class="row" style="color:lightblue; margin-top:50px" id="card">
 
         @foreach (var item in Model.Layouts)
@@ -94,13 +94,13 @@
 
             </div>
         }
-        </div>
-           
+    </div>
 
 
 
 
-        </div>
+
+</div>
 
 
 
@@ -113,42 +113,32 @@
 <!-- Features Section -->
 @foreach (var item in Model.Identities)
 {
+   
+        <div class="container" style="color:wheat; margin-top:150px; background-color:#171515">
+            <div class="row" style="background-color: rgba(0,0,0,0.3); border-color: transparent">
+                <div class="col-lg-4" style="color:wheat">
+                    <h2>@item.Name</h2>
+                    <p>ElBerk Müzik Stüdyoları:</p>
+                    <div class="identitysec">
+                        <ul style=" list-style-type: none">
+                            <li>
+                                <strong>@item.Specifications1</strong>
+                            </li>
+                            <li>@item.Specifications2</li>
+                            <li>@item.Specifications3</li>
+                            <li>@item.Specifications4</li>
+                        </ul>
 
-    <div class="container" style="color:wheat; margin-top:150px; background-color:#171515">
-        <div class="row" style="background-color: rgba(0,0,0,0.3); border-color: transparent">
-            <div class="col-lg-4" style="color:wheat">
-                <h2>@item.Name</h2>
-                <p>ElBerk Müzik Stüdyoları:</p>
-                <ul>
-                    <li>
-                        <strong>@item.Specifications4</strong>
-                    </li>
-                    <li>@item.Specifications1</li>
-                    <li>@item.Specifications2</li>
-                    <li>@item.Specifications3</li>
-                </ul>
-                <p>@item.Objective</p>
-            </div>
-            <div class="col-lg-8" style="float:left; margin-top:10px">
-                <img style=" width:200px;height:200px; margin-left:50px" src="~/images/@item.ImagePath" />
-            </div>
+                    </div>
 
-            <div class="col-lg-6">
-                    <img class="img-fluid rounded" src="" alt="" style="width:350px;height:250px; margin-top:35px;margin-left:100px">
+                    <p>@item.Objective</p>
                 </div>
+                    <div class="col-lg-8" style="float:left; margin-top:10px">
+                        <img style=" width:200px;height:200px; margin-left:50px" src="~/images/@item.ImagePath" />
+                    </div>
+
 
         </div>
-        <!-- /.row -->
-        <!-- Call to Action Section -->
-
-
-
-
     </div>
-
 }
 
-
-<br />
-<br />
-<br />

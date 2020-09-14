@@ -96,7 +96,7 @@ namespace BLL.Repository
             context.SaveChanges();
         }
 
-        public void UpdateFullLayout(LayoutDetail entity)
+        public void UpdateLayoutDetail(LayoutDetail entity)
         {
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
@@ -111,7 +111,7 @@ namespace BLL.Repository
         {
             LayoutDetail layout = GetDetailByID(id);
             layout.Status = DAL.Entity.Enum.Status.Deleted;
-            UpdateFullLayout(layout);
+            UpdateLayoutDetail(layout);
         }
     }
 }

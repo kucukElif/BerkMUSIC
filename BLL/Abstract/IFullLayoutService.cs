@@ -16,7 +16,8 @@ namespace BLL.Abstract
         void Add(FullLayout entity);
         void Update(FullLayout entity);
         void Remove(Guid id);
-
+        void AddLayoutDetail(LayoutDetail entity);
+        LayoutDetail GetLayoutDetail(Guid id);
 
         FullLayout GetById(Guid id);
         void RemoveAll(Expression<Func<FullLayout, bool>> exp);

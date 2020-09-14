@@ -19,14 +19,16 @@ namespace BerkMusicUI.Controllers
         private readonly INavbarService navbarService;
         private readonly ILayoutService layoutService;
         private readonly IPriceService priceService;
+        private readonly IFullLayoutService fullLayoutService;
 
-        public HomeController( IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService)
+        public HomeController( IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService, IFullLayoutService fullLayoutService)
         {
            
             this.identityService = identityService;
             this.navbarService = navbarService;
             this.layoutService = layoutService;
             this.priceService = priceService;
+            this.fullLayoutService = fullLayoutService;
         }
         public IActionResult Index()
         {
@@ -42,6 +44,7 @@ namespace BerkMusicUI.Controllers
             FullLayoutVM fullLayoutVM = new FullLayoutVM();
             fullLayoutVM.Layout = layoutService.GetById(id);
             fullLayoutVM.LayoutDetails = layoutService.GetLayoutDetails();
+            fullLayoutVM.FullLayouts = fullLayoutService.GetActive();
             return View(fullLayoutVM);
             
         }

@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h2 class="card-title">@post.Title</h2>
                 <p class="card-text" style="display:-webkit-box; -webkit-line-clamp:3;-webkit-box-orient: vertical; overflow:hidden">@post.Body</p>
-                <a asp-controller="Blog" asp-action="FullPost" asp-route-id="@post.ID" class="btn btn-primary">Devamını Oku &rarr;</a>
+                @*<a asp-controller="Blog" asp-action="FullPost" asp-route-id="@post.ID" class="btn btn-primary">Devamını Oku &rarr;</a>*@
             </div>
             <div class="card-footer text-muted">
                 Yayın Tarihi  @post.CreatedDate.Value.Day/@post.CreatedDate.Value.Month/@post.CreatedDate.Value.Year

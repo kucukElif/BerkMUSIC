@@ -10,5 +10,6 @@ namespace BerkMusicUI.Models
     {
         public List<LayoutDetail> LayoutDetails { get; set; }
         public Layout Layout { get; set; }
+        public List<FullLayout> FullLayouts { get; set; }
     }
 }

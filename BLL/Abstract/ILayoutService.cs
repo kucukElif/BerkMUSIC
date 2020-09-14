@@ -16,7 +16,7 @@ namespace BLL.Abstract
         void Add(Layout entity);
         void AddLayoutDestail(LayoutDetail entity);
         void Update(Layout entity);
-        void UpdateFullLayout(LayoutDetail entity);
+        void UpdateLayoutDetail(LayoutDetail entity);
         void Remove(Guid id);
         void RemoveDetail(Guid id);
 

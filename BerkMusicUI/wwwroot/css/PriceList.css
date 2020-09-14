@@ -1,6 +1,13 @@
 ﻿body {
-    font-family:popins;
-    background:#eee;
+    background-image: url('../images/stormbackground.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.priceList_Body {
+    font-family: popins;
 }
 .wrapper {
     width: 900px;

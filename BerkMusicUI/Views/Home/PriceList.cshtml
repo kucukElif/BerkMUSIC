@@ -3,38 +3,42 @@
     ViewData["Title"] = "PriceList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/css/PriceListcss.css" rel="stylesheet" />
-<div class="row" style="margin-left:10%;margin-right:10%;margin-top:40px">
-    @foreach (var item in Model)
-    {
-        <div class="col-lg-3">
+<link href="~/css/PriceList.css" rel="stylesheet" />
+<div class="priceList_Body">
+    <div class="row" style="margin-left: 10%; margin-right: 10%; margin-top: 40px;">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3">
 
-            <div class="wrapper">
-                <div class="single-price">
-                    <div class="get-center" style="margin-top:10%">
-                        <h1>@item.Title</h1>
-                        <div class="price">
-                            <h2 style="margin-top:35px">@item.SinglePrice</h2>
-                        </div>
-                        <div class="deals">
-                            <h4>@item.Description1</h4>
-                            <h4>@item.Description2</h4>
-                            <h4>@item.Description3</h4>
-                            <h4>@item.Description4</h4>
+                <div class="wrapper">
+                    <div class="single-price">
+                        <div class="get-center" style="margin-top:10%">
+                            <h1>@item.Title</h1>
+                            <div class="price">
+                                <h2 style="margin-top:35px">@item.SinglePrice</h2>
+                            </div>
+                            <div class="deals">
+                                <h4>@item.Description1</h4>
+                                <h4>@item.Description2</h4>
+                                <h4>@item.Description3</h4>
+                                <h4>@item.Description4</h4>
+
+                            </div>
 
                         </div>
 
                     </div>
-
                 </div>
+
             </div>
-
-        </div>
-    }
+        }
 
 
+    </div>
 </div>
-
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
