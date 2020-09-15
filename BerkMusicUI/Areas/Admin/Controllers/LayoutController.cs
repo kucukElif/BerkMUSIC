@@ -120,19 +120,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                     model.ImagePath = image.FileName;
                 }
                 fullLayoutService.Update(model);
-              //  var l = layoutService.GetById(id);
-              //  var fl = fullLayoutService.GetById(model.ID);
-              //  LayoutDetail ld = new LayoutDetail();
-
-              //  ld.FullLayout = fl;
-              //ld.FullLayoutID = fl.ID;
-              //ld.Title = fl.Title;
-              //ld.Description = fl.Description;
-              //ld.ImagePath = fl.ImagePath;
-              //ld.Layout = l;
-              //ld.LayoutID = l.ID;
-              // layoutService.UpdateLayoutDetail(ld);
-
+           
                 return RedirectToAction("Index");
 
 
@@ -143,7 +131,26 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 return View();
             }
         }
+        public ActionResult DeleteFullLayout(Guid id)
+        {
+            return View(fullLayoutService.GetById(id));
+        }
 
+        // POST: Category/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteFullLayout(FullLayout fullLayout)
+        {
+            try
+            {
+                fullLayoutService.Remove(fullLayout.ID);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
         public IActionResult Create()
         {
             return View();

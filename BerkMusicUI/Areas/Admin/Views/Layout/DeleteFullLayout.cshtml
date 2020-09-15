@@ -1,0 +1,18 @@
+﻿@model FullLayout
+@{
+    ViewData["Title"] = "DeleteFullLayout";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="DeleteFullLayout" asp-controller="Layout" method="post">
+            <p>
+                @Model.Title başlıklı bölümü silmek istediğinize emin misiniz?
+            </p>
+            <button class="btn btn-danger">Evet</button>
+            <a asp-action="Index" asp-controller="Layout" class="btn">İptal</a>
+        </form>
+    </div>
+</div>
+
