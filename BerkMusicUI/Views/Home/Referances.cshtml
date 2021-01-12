@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Referance>
+@{
+    ViewData["Title"] = "Referances";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/referances.css" rel="stylesheet" />
+<div class="referances" data-scroll-index="3">
+    <div class="container">
+        <div class="wrapper">
+            <h3 style="color:wheat; margin-top:25px"></h3>
+            <div class="row" style=" margin:auto;margin-top:5%; ">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3">
+                        <div class="box">
+                            <div class="imgBox">
+
+                                <img src="~/images/@item.Photo" style="margin-bottom:4px; width:275px; height:300px" />
+
+                                <a href="@item.Link" target=”_blank”>
+                                    <div class="overlay">
+                                        <div class="content">@item.Text</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+                <a data-scroll-goto='0'>Back to top</a>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>
+@section scripts{
+
+    <script>
+        $(function () {
+            $.scrollIt();
+        });
+    </script>
+}

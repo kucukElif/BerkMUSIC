@@ -1,0 +1,13 @@
+﻿body {
+}
+table {
+width:100%;
+table-layout:fixed;
+}
+    table tr {
+    height:1em;
+    }
+td {
+overflow:hidden;
+white-space:nowrap;
+}

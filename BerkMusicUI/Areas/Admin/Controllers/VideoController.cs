@@ -5,12 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using BLL.Abstract;
 using DAL.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BerkMusicUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Authorize(Roles ="Admin")]
     public class VideoController : Controller
     {
       
@@ -25,37 +28,75 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         {
             return View(videoService.GetActive());
         }
-
+        public  IActionResult Create()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Video model, IFormFile image)
+        public async Task<IActionResult> Create(Video model)
+        {
+            if (model.VideoPath == null)
+            {
+                model.VideoPath = "novideo.png";
+
+
+            }
+            videoService.Add(model);
+                return RedirectToAction("Index");
+           
+
+        }
+
+
+        public IActionResult Edit(Guid id)
+        {
+            Video video = videoService.GetById(id);
+            
+                TempData["VideoPath"] = video.VideoPath;
+
+            
+            return View(video);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(Video video)
         {
             try
             {
-                string path;
-                if (image == null)
+                if (video.VideoPath == null)
                 {
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//noimage", "noimage.jpeg");
-                    model.VideoPath = "noimage.jpg";
-                }
-                else
-                {
-                    path = Path.GetFullPath("wwwroot\\images\\" + image.FileName);
-                    using (var stream = new FileStream(path, FileMode.Create))
+                    if (video.VideoPath != null)
                     {
-                        await image.CopyToAsync(stream);
+                        videoService.Update(video);
+                        return RedirectToAction("Index");
                     }
-                    model.VideoPath = image.FileName;
+                    video.VideoPath = TempData["VideoPath"].ToString();
+
                 }
-                videoService.Add(model);
+              
+                videoService.Update(video);
                 return RedirectToAction("Index");
+
             }
             catch
             {
-
                 return View();
-            }
 
+            }
+        }
+
+        public IActionResult Delete(Guid id)
+        {
+            return View(videoService.GetById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Video video)
+        {
+            videoService.Remove(video.ID);
+            return RedirectToAction("Index");
         }
     }
 }  

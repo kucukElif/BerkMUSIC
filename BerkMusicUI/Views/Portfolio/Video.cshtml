@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Video>
+@{
+    ViewData["Title"] = "Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/video.css" rel="stylesheet" />
+<h3 style="color:wheat; margin-top:25px;margin-left:15%">Video Galerisi</h3>
+
+@foreach (var item in Model)
+{
+
+    <div class="container" style="margin-top:70px">
+        <div class="row">
+
+            <div class="video-background" style="width:700px; height:400px;margin:auto;float:none;">
+                <div class="video-foreground">
+                    <iframe src="@item.VideoPath" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="vid-info" style=" margin-top: -403px;    height: 350px">
+                        <h1>@item.Title</h1>
+                        <p style="word-wrap:break-word">
+                            @item.Explanation
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+}
+
+<br />
+<br />
+<br />
+

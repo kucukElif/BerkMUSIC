@@ -16,6 +16,7 @@
                         <th>Id</th>
                         <th>Kullanıcı</th>
                         <th>Üyelik Durumu</th>
+                        <th>Rol Ata</th>
                         <th>Kullanıcı Sil</th>
                        
                     </tr>
@@ -27,16 +28,15 @@
                         <td>@user.Id</td>
                         <td>@user.UserName</td>
 
-
+                        <td user-roles="@user.Id.ToString()"></td>
                         <td>
-                 
                             <a asp-action="AssignMember" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-sm btn-warning">Üye Yap</a>
-                            <a asp-action="AssignAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-sm btn-danger">Admin Yap</a>
+                            <a asp-action="AssignAdmin" asp-controller="AppUser" asp-route-id="@user.Id" class="btn btn-sm btn-success">Admin Yap</a>
                         </td>
                         <td>
                             <form asp-action="Delete" asp-route-id="@user.Id" method="post">
                                 <button type="submit" class="btn btn-sm btn-danger">
-                                    Delete
+                                    Sil
                                 </button>
                             </form>
                         </td>

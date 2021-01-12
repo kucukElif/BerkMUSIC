@@ -17,6 +17,9 @@ namespace DAL.Context
         {
 
         }
+       
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Video> Videos { get; set; }
         public DbSet<Layout> Layouts { get; set; }
@@ -26,7 +29,11 @@ namespace DAL.Context
         public DbSet<Identity> Identities { get; set; }
         public DbSet<NavbarItem> NavbarItems { get; set; }
         public DbSet<Photo> Photos { get; set; }
-       
+        public DbSet<Referance> Referances { get; set; }
+        public DbSet<Information> Informations { get; set; }
+
+      
+
         public override int SaveChanges()
         {
             var modifiedEntries = ChangeTracker.Entries().Where(x => x.State == EntityState.Modified || x.State == EntityState.Added).ToList();

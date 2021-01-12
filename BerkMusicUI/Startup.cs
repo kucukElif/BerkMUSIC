@@ -43,7 +43,11 @@ namespace BerkMusicUI
             services.AddTransient<IPhotoService, PhotoRepository>();
 
             services.AddTransient<IPriceService, PriceRepository>();
-            //services.AddTransient<IFullLayoutService, FullLayoutRepository>();
+            services.AddTransient<IReferanceService,ReferanceRepository>();
+            services.AddTransient<IInformationService, InformationRepository>();
+            services.AddTransient<ICategoryService, CategoryRepository>();
+            services.AddTransient<ICommentService, CommentRepository>();
+            services.AddTransient<IVideoService, VideoRepository>();
           
 
             //Identity
@@ -72,7 +76,7 @@ namespace BerkMusicUI
             }
 
             app.UseAuthentication();
-            app.UseAuthorization();//kimlik doðrulama
+            app.UseAuthorization();
             app.UseRouting();
 
             app.UseStaticFiles();
@@ -85,7 +89,7 @@ namespace BerkMusicUI
 
                 routes.MapRoute(
                name: "default",
-               template: "{controller=Home}/{action=Index}/{id?}"
+               template: "{controller=Home}/{action=PreLoad}/{id?}"
              );
 
 

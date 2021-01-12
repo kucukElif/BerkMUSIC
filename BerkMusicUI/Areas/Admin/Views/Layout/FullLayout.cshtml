@@ -1,6 +1,6 @@
 ﻿@model LayoutVM
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Sayfa İçeriği";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -11,6 +11,7 @@
         <table id="producttable" class="table table-striped">
             <thead>
                 <tr>
+                    <th></th>
                     <th>Başlık</th>
                     <th>Açıklama </th>
 
@@ -37,9 +38,9 @@
                                 <td style="display:-webkit-box; -webkit-line-clamp:2;-webkit-box-orient: vertical; overflow:hidden">@item.Description</td>
 
                                 <td>
-                                    <a asp-action="EditFullLayout" asp-controller="Layout" asp-route-id="@item.ID" class="btn btn-warning">Güncelle</a>
+                                    <a asp-action="EditFullLayout" asp-controller="Layout" asp-route-id="@item.ID" class="btn btn-warning">Düzenle</a>
 
-                                    <a asp-action="DeleteFullLayout" asp-controller="Layout" asp-route-id="@item.ID" class=" btn btn-sm btn-danger">Sil</a>
+                                    @*<a asp-action="DeleteFullLayout" asp-controller="Layout" asp-route-id="@item.ID" class=" btn btn-sm btn-danger">Sil</a>*@
                                 </td>
                             }
                         }

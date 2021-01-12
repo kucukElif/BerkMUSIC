@@ -74,6 +74,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         public IActionResult Edit(Guid id)
         {
             NavbarItem navbar = navbarService.GetById(id);
+            TempData["ImagePath"] = navbar.ImagePath;
             return View(navbar);
 
         }
@@ -91,8 +92,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                         navbarService.Update(navbar);
                         return RedirectToAction("Index");
                     }
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", "noimage.jpg");
-                    navbar.ImagePath = "noimage.jpg";
+                    path = Path.Combine(Directory.GetCurrentDirectory(), TempData["ImagePath"].ToString());
+                    navbar.ImagePath = TempData["ImagePath"].ToString();
 
                 }
                 else

@@ -1,0 +1,79 @@
+﻿@model Information
+@{
+    ViewData["Title"] = "Hakkımızda Sayfası Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="card card-primary">
+
+                        <form role="form" asp-action="Create" asp-controller="Information" method="post" enctype="multipart/form-data">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Resim Ekle</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="image" id="customeFileLang" />
+                                            <label class="custom-file-label" for="customeFileLang">Fotoğraf Ekle</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Statü</label>
+                                    <input asp-for="Title" type="text" class="form-control" placeholder="Statü Ekleyin" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Başlık(Ad-Soyad)</label>
+                                    <input asp-for="Name" type="text" class="form-control" placeholder="Başlık Ekleyin" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label>1. Paragraf</label>
+                                    <textarea asp-for="Description1" type="text" class="form-control" style="width:100%; height:300px"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>2. Paragraf</label>
+                                    <textarea asp-for="Description2" type="text" class="form-control" style="width:100%; height:300px"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>3. Paragraf</label>
+                                    <textarea asp-for="Description3" type="text" class="form-control" style="width:100%; height:300px"></textarea>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+
+                                <button class="btn btn-primary" type="submit">Ekle</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+        bsCustomFileInput.init();
+        $('custom-file-input').on('change', function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).next('custom-file-label').html(fileName);
+        });
+
+    </script>
+
+}
+

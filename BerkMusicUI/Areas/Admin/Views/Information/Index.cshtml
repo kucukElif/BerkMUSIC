@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Information>
+@{
+    ViewData["Title"] = "Hakkımızda Sayfası Düzenlemeleri";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 offset-lg-1">
+            <div class="card">
+                <div class="card-header">
+                    <a asp-action="Create" asp-controller="Information" class="btn btn-success float-right">Sayfa Ekle</a>
+                </div>
+
+                <div class="card-body">
+                    <table id="usertable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Statü</th>
+                                <th>İsim</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                       
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/images/@item.ImagePath" style="height:50px; width:50px;" />
+                                    </td>
+                                    <td>@item.Title</td>
+
+                                    <td>@item.Name</td>
+
+                                    <td>
+                                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-controller="Information" asp-route-id="@item.ID">Düzenle</a>
+                                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-controller="Information" asp-route-id="@item.ID">Sil</a>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#usertable').DataTable();
+        });
+    </script>
+
+
+}

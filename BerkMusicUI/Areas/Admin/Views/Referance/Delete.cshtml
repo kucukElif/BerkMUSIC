@@ -1,0 +1,18 @@
+﻿@model Referance
+@{
+    ViewData["Title"] = "Referansı Sil";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="Delete" asp-controller="Referance" method="post">
+                <p>
+                    @Model.Text silmek istediğinizden emin misiniz?
+                </p>
+                <button class="btn btn-danger">Evet</button>
+                <a asp-action="Index" asp-controller="Referance" class="btn">İptal</a>
+            </form>
+        </div>
+    </div>
+

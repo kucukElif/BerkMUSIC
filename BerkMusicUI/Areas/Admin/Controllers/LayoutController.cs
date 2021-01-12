@@ -70,6 +70,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                     model.ImagePath = image.FileName;
                 }
                 fullLayoutService.Add(model);
+
                 var l = layoutService.GetById(id);
                 var fl = fullLayoutService.GetById(model.ID);
                 LayoutDetail ld = new LayoutDetail();
@@ -82,6 +83,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 ld.Layout = l;
                 ld.LayoutID = l.ID;
                 layoutService.AddLayoutDestail(ld);
+
+
                 return RedirectToAction("Index");
 
 
@@ -96,6 +99,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         public IActionResult EditFullLayout(Guid id)
         {
             FullLayout fullLayout = fullLayoutService.GetById(id);
+            TempData["ImagePath"] = fullLayout.ImagePath;
             return View(fullLayout);
         }
         [HttpPost]
@@ -106,8 +110,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                 string path;
                 if (image == null)
                 {
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", "noimage.jpg");
-                    model.ImagePath = "noimage.jpg";
+                    path = Path.Combine(Directory.GetCurrentDirectory(), TempData["ImagePath"].ToString());
+                    model.ImagePath = TempData["ImagePath"].ToString();
                 }
                 else
                 {
@@ -195,6 +199,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         public IActionResult Edit(Guid id)
         {
             Layout layout = layoutService.GetById(id);
+            TempData["ImagePath"] = layout.ImagePath;
             return View(layout);
 
         }
@@ -212,8 +217,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                         layoutService.Update(layout);
                         return RedirectToAction("Index");
                     }
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", "noimage.jpg");
-                    layout.ImagePath = "noimage.jpg";
+                    path = Path.Combine(Directory.GetCurrentDirectory(), TempData["ImagePath"].ToString());
+                    layout.ImagePath = TempData["ImagePath"].ToString();
 
                 }
                 else

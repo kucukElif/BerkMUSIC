@@ -11,6 +11,7 @@
     <title>ElBerk Müzik Admin Paneli</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/table.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -128,15 +129,15 @@
                             <a asp-action="Index" asp-controller="Identity" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Kimlik Bilgileri
+                                    Çalışanlar
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-action="Index" asp-controller="Price" class="nav-link">
+                            <a asp-action="Index" asp-controller="Information" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Fiyat Sayfası
+                                    Hakkımızda Sayfası
                                 </p>
                             </a>
                         </li>
@@ -149,10 +150,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a asp-action="Index" asp-controller="Post" class="nav-link">
+                            <a asp-action="Index" asp-controller="Referance" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Blog
+                                    Referanslar
                                 </p>
                             </a>
                         </li>
@@ -171,6 +172,14 @@
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Fotoğraflar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Index" asp-controller="Video" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Video
                                 </p>
                             </a>
                         </li>

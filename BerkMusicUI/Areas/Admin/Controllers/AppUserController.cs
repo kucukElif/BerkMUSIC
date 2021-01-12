@@ -39,7 +39,9 @@ namespace BerkMusicUI.Areas.Admin.Controllers
             public async Task<IActionResult> AssignAdmin(string id)
             {
                 AppUser user = await userManager.FindByIdAsync(id);
-                await userManager.AddToRoleAsync(user, "Admin");
+            await userManager.RemoveFromRoleAsync(user, "Member");
+
+            await userManager.AddToRoleAsync(user, "Admin");
            
             return RedirectToAction("Index");
         }

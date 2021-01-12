@@ -66,6 +66,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         {
 
             Photo photo = photoService.GetById(id);
+            TempData["ImagePath"] = photo.ImagePath;
             return View(photo);
         }
 
@@ -84,8 +85,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                         photoService.Update(photo);
                         return RedirectToAction("Index");
                     }
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", "noimage.jpg");
-                    photo.ImagePath = "noimage.jpg";
+                    path = Path.Combine(Directory.GetCurrentDirectory(), TempData["ImagePath"].ToString());
+                    photo.ImagePath = TempData["ImagePath"].ToString();
 
                 }
                 else

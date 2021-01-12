@@ -11,18 +11,21 @@ namespace BerkMusicUI.Controllers
     public class PortfolioController : Controller
     {
         private readonly IPhotoService photoService;
+        private readonly IVideoService videoService;
 
-        public PortfolioController(IPhotoService photoService)
+        public PortfolioController(IPhotoService photoService,IVideoService videoService)
         {
             this.photoService = photoService;
+            this.videoService = videoService;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+      
         public IActionResult Photos()
         {
             return View(photoService.GetActive());
-        } 
+        }
+        public IActionResult Video()
+        {
+            return View(videoService.GetActive());
+        }
     }
 }

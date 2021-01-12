@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Referance>
+@{
+    ViewData["Title"] = "Referanslar";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <a asp-action="Create" asp-controller="Video" class="btn btn-success float-right">Referans Ekle</a>
+    </div>
+    <div class="card-body">
+        <table id="usertable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Metin</th>
+                    <th>Link(URL)</th>
+
+
+
+                    <th></th>
+
+                </tr>
+            </thead>
+           
+
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td><img src="~/images/@p.Photo" style="width:50px; height:50px" /></td>
+
+                        <td>@p.Text</td>
+
+                        <td>@p.Link</td>
+
+
+
+                        <td>
+                            <a asp-action="Edit" asp-controller="Video" asp-route-id="@p.ID" class="btn btn-sm btn-warning">Düzenle</a>
+
+                            <a asp-action="Delete" asp-controller="Video" asp-route-id="@p.ID" class=" btn btn-sm btn-danger">Sil</a>
+                        </td>
+
+                    </tr>
+                }
+                </tbody>
+
+          
+
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#usertable').DataTable();
+        });
+    </script>
+
+
+}

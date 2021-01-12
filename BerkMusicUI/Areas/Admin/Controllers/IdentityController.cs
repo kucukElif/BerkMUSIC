@@ -8,6 +8,7 @@ using DAL.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace BerkMusicUI.Areas.Admin.Controllers
 {
@@ -68,6 +69,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         public IActionResult Edit(Guid id)
         {
             Identity identity = identityService.GetById(id);
+            TempData["ImagePath"] = identity.ImagePath;
             return View(identity);
 
         }
@@ -75,6 +77,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(Identity identity, IFormFile image)
         {
+            
+
             try
             {
                 string path;
@@ -85,8 +89,8 @@ namespace BerkMusicUI.Areas.Admin.Controllers
                         identityService.Update(identity);
                         return RedirectToAction("Index");
                     }
-                    path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", "noimage.jpg");
-                    identity.ImagePath = "noimage.jpg";
+                    path = Path.Combine(Directory.GetCurrentDirectory(), TempData["ImagePath"].ToString());
+                    identity.ImagePath = TempData["ImagePath"].ToString(); 
 
                 }
                 else
@@ -104,7 +108,7 @@ namespace BerkMusicUI.Areas.Admin.Controllers
             }
             catch
             {
-                return View();
+                return View(identity);
 
             }
 

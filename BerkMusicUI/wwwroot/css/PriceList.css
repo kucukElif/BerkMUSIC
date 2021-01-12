@@ -1,6 +1,6 @@
 ﻿body {
-    background-image: url('../images/stormbackground.jpeg');
-    background-position: center;
+/*    background-image: url('../images/stormbackground.jpeg');
+*/    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -10,13 +10,12 @@
     font-family: popins;
 }
 .wrapper {
-    width: 900px;
+    width:300px;
     margin: 5% auto;
     height: 400px;
 }
 .single-price{
     width:33%;
-    background:#262626;
     float:left;
     margin-top:2%;
     box-shadow:1px 1px 20px rgba(0,0,0,0.5);
@@ -35,6 +34,43 @@
 
 .deals{
     margin-top:10%
+}
+.get-center p:after {
+    content: '';
+    width: 4rem;
+    height: 2px;
+    position: absolute;
+    background: #C6D4DF;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -.75rem;
+}
+.get-center p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+.error-wrapper {
+    background-color: #961111;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+.error-wrapper:hover span {
+        display: block;
+    }
+
+.error-wrapper span {
+    display: none;
+    color: #111;
+}
+
+.get-center span {
+    color: rgba(255,255,255,0.7);
+    font-family: 'Montserrat';
+    font-weight: 300;
 }
 .single-price h1{
     font-size:18px;

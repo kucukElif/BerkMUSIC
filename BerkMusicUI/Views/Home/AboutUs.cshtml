@@ -1,33 +1,47 @@
-﻿
+﻿@model IEnumerable<Information>
 @{
     ViewData["Title"] = "AboutUs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container">
-    <div class="row align-items-center my-5">
-        <div class="col-lg-6">
-            <img class="img-fluid rounded mb-4 mb-lg-0" src="~/images/WhatsApp Image 2020-06-28 at 13.13.22.jpeg" alt="" style="height:600px">
-        </div>
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-6">
-            <h6 class="font-weight-light" style="color: wheat">Mix Mastering Mühendisi</h6>
-            <h3 style="color: wheat">Berk Gülen</h3>
-            <hr color="wheat" />
-            <p style="color: wheat">
-                Elberk Müzik Stüdyosu 2020 yılında İstanbul Kadıköy'de Berk Gülen tarafından kurulmuştur. Ses kayıt ve aranjörlük stüdyosu olarak kurulan Elberk Stüdyosu müzik kayıtları, ses kayıtları, mix ve mastering, grup provaları hizmetleri vermektedir. Stüdyomuzun tasarımı ve inşaatı gelişen teknolojiye uygun, ses ve akustik yalıtımı profesyonel olarak titizlikle yapılmıştır. Stüdyomuz iki katlı olup içerisinde dinlenme alanları bulunmaktadır.
+<div class="about-us" data-scroll-index="1">
+    @foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="row align-items-center my-5">
 
-            </p>
-            <p style="color: wheat">
-                Gülen ailesinin müzik geçmişi 1970 yılında Reşat Gülen, Ayhan Gülen ve Erhan Gülen kuruculuğuyla Çığlar Orkestrası olarak başlamıştır. Büyük babamız Av. İsmet Gülen İstanbul Türk Sanat Musiki barosunda yıllarca hizmet vermiştir.
-                Ailemizin müzik geçmişini besteci Çağrı Gülen, piyanist Erdem Gülen ve aranjör Berk Gülen devam ettirmektedir.
-            </p>
-                <p  style="color: wheat">
-                    Stüdyo performansında profesyonel deneyimi olan Galatasaray itm eğitimli ses mühendisi, Tarık Sezer Akademi teori birincisi, 15 yıllık bateri ve 3 yıllık özel bateri eğitmenliği tecrübesiyle Berk Gülen ses mühendisimiz ve mix/mastering imkanlarımızla ElBerk Stüdyosunda amatör yada profesyonel her kesimden müzisyenlere hizmet vermekteyiz.
-            </p>
-            @*<a class="btn btn-primary" href="">İletişime Geçin!</a>*@
-        </div>
-        <!-- /.col-md-4 -->
-    </div>
+                <div class="col-md-5">
+                    <img src="~/images/@item.ImagePath" alt="" style="height:500px; width:100%; border-radius:50px">
+                </div>
+                <!-- /.col-lg-8 -->
+
+                <div class="col-md-7">
+                    <h6 class="font-weight-light" style="color: wheat">@item.Title</h6>
+                    <h3 style="color: wheat">@item.Name</h3>
+                    <hr color="wheat" />
+                    <p style="color: wheat">
+                        @item.Description1
+                    </p>
+                    <p style="color: wheat">
+                        @item.Description2
+                    </p>
+                    <p style="color: wheat">
+                        @item.Description3
+                    </p>
+                    @*<a class="btn btn-primary" href="">İletişime Geçin!</a>*@
+                </div>
 
 
+            </div>
+
+
+
+        </div>}
 </div>
+@section scripts{
+
+    <script>
+        $(function () {
+            $.scrollIt();
+        });
+    </script>
+}

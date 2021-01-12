@@ -1,0 +1,83 @@
+﻿@model Video
+@{
+    ViewData["Title"] = "Video Güncelle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div class="container">
+                        <div class="row">
+                            @if (Model.VideoPath == "novideo.png")
+                            {
+                                <img class="img-fluid" style="width: 700px; height: 300px;" src="~/images/novideo.png" />
+                            }
+                            else
+                            {
+                                <iframe width="700" height="300" src="@Model.VideoPath" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            }
+                        </div>
+                            </div>
+                    <form role="form" asp-action="Edit" asp-controller="Video" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Başlık</label>
+                                <input asp-for="Title" type="text" class="form-control" placeholder="Metin Giriniz">
+                            </div>
+                         
+                                <div class="form-group">
+                                    <label>Açıklama</label>
+                                    <textarea asp-for="Explanation" type="text" class="form-control" placeholder="Konu" style="width:100%; height:300px" ></textarea>
+                                </div>
+                            <div class="form-group">
+                                <label>src Link(URL)</label>
+                                <input asp-for="VideoPath" type="text" class="form-control" placeholder="URL Giriniz">
+                            </div>
+
+</div>
+
+                        <!-- /.box-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Güncelle</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+                <!-- Form Element sizes -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+    </script>
+
+    @*<script>
+    function checkChar() {
+            var allowedChar = 250;
+            var content = document.getElementById("content");
+            var contLength = content.value.length;
+
+            if (contLength > allowedChar) {
+                content.value = content.value.substring(0, allowedChar);
+                document.getElementById("report").innerHTML = "<span style='color:red;'>UYARI: En fazla " + allowedChar + " karakter girebilirsiniz</span>";
+        }
+            
+        }</script>*@
+
+}

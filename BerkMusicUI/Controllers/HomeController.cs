@@ -20,8 +20,11 @@ namespace BerkMusicUI.Controllers
         private readonly ILayoutService layoutService;
         private readonly IPriceService priceService;
         private readonly IFullLayoutService fullLayoutService;
+        private readonly IReferanceService referanceService;
+        private readonly IInformationService informationService;
+        private readonly IVideoService videoService;
 
-        public HomeController( IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService, IFullLayoutService fullLayoutService)
+        public HomeController(IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService, IFullLayoutService fullLayoutService, IReferanceService referanceService, IInformationService informationService,IVideoService videoService)
         {
            
             this.identityService = identityService;
@@ -29,6 +32,9 @@ namespace BerkMusicUI.Controllers
             this.layoutService = layoutService;
             this.priceService = priceService;
             this.fullLayoutService = fullLayoutService;
+            this.referanceService = referanceService;
+            this.informationService = informationService;
+            this.videoService = videoService;
         }
         public IActionResult Index()
         {
@@ -38,7 +44,14 @@ namespace BerkMusicUI.Controllers
             homePageVM.Layouts = layoutService.GetActive();
             return View(homePageVM);
         }
-
+        public IActionResult Referances()
+        {
+            return View(referanceService.GetActive());
+        }
+        public IActionResult Slider()
+        {
+            return View();
+        }
         public IActionResult FullLayout(Guid id)
         {
             FullLayoutVM fullLayoutVM = new FullLayoutVM();
@@ -58,15 +71,21 @@ namespace BerkMusicUI.Controllers
             return View();
 
         }
-
-
+        public IActionResult Loader()
+        {
+            return View();
+        }
+        public IActionResult ParallaxCard()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult Contact(Mail mail)
         {
             try
             {
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                client.Credentials = new NetworkCredential("elberkmusic@gmail.com", "*");
+                client.Credentials = new NetworkCredential("elberkmusic@gmail.com", "Elif2014*");
                 client.EnableSsl = true;
                 MailMessage msg = new MailMessage();
                 msg.From = new MailAddress(mail.Email, " " + mail.Name+" "+mail.PhoneNumber);
@@ -100,6 +119,10 @@ namespace BerkMusicUI.Controllers
        
 
       public IActionResult AboutUs()
+        {
+            return View(informationService.GetActive());
+        }
+       public IActionResult PreLoad()
         {
             return View();
         }

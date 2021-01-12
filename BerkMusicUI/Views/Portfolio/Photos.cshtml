@@ -6,29 +6,31 @@
 <link href="~/css/lightbox.css" rel="stylesheet" />
 <link href="~/css/Photos.css" rel="stylesheet" />
 <script src="~/js/lightbox-plus-jquery.js"></script>
-<div class="container">
-    <div class="gallery">
-        <h3 style="color:wheat; margin-top:25px">Fotoğraf Galerisi</h3>
-        <div class="row" style="margin-top:5%">
-            @foreach (var photo in Model)
-            {
-                <div class="col-lg-4 col-mb-6 mb-4">
+<div class="portfolio" data-scroll-index="2">
+    <div class="container">
+        <div class="gallery">
+            <h3 style="color:wheat; margin-top:25px">Fotoğraf Galerisi</h3>
+            <div class="row" style="margin-top:5%">
+                @foreach (var photo in Model)
+                {
+                    <div class="col-lg-4 col-mb-6 mb-4">
 
-                    <a href="~/images/@photo.ImagePath" data-lightbox="mygallery"><img src="~/images/@photo.ImagePath" style="width:300px; height:300px" /></a>
-                </div>
+                        <a href="~/images/@photo.ImagePath" data-lightbox="mygallery"><img src="~/images/@photo.ImagePath" style="width:300px; height:300px; border-radius:50px;margin-left:-11%" /></a>
+                    </div>
 
-            }
+                }
+
+
+            </div>
+            <a data-scroll-goto='0'>Back to top</a>
 
 
         </div>
 
+
+
     </div>
-
-
-
 </div>
-
-
 
 
 

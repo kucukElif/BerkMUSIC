@@ -1,8 +1,56 @@
-﻿
+﻿@model IEnumerable<Video>
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Video Galerisi";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="card">
+    <div class="card-header">
+        <a asp-action="Create" asp-controller="Video" class="btn btn-success float-right">Video Ekle</a>
+    </div>
+    <div class="card-body">
+        <table id="usertable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Başlık</th>
+                    <th>Açıklama </th>
+                    <th>Video Linki (src URL)</th>
 
-<h1>Index</h1>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>@p.Title</td>
+
+                        <td style="display:-webkit-box; -webkit-line-clamp:2;-webkit-box-orient: vertical; overflow:hidden">@p.Explanation</td>
+                        <td>@p.VideoPath</td>
+                        <td>
+                            <a asp-action="Edit" asp-controller="Video" asp-route-id="@p.ID" class="btn btn-sm btn-warning">Düzenle</a>
+
+                            <a asp-action="Delete" asp-controller="Video" asp-route-id="@p.ID" class=" btn btn-sm btn-danger">Sil</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+
+
+        </table>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#usertable').DataTable();
+        });
+    </script>
+
+
+}
 

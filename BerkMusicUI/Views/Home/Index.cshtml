@@ -6,139 +6,443 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-
-
+<link href="~/lightslider-master/dist/css/lightslider.css" rel="stylesheet" />
+<link href="~/css/Layout.css" rel="stylesheet" />
 <link href="~/css/Card.css" rel="stylesheet" />
-<div class="index_header">
+<link href="~/loader.css" rel="stylesheet" />
+<link href="~/responsiveslider.css" rel="stylesheet" />
+<link href="~/css/PriceList.css" rel="stylesheet" />
+<div class="home-page" data-scroll-index="0" @*style="    background-image: url('../images/WhatsApp Image 2021-01-10 at 19.18.53.jpeg'); background-size:cover;"*@>
+    <div class="error_container">
+        <div class="error-wrapper">
+            <span style=" word-break:break-word">UYARI! Bu Stüdyo RAP Türkü Müzik Kayıtları Almamaktadır. Stüdyomuzda piyano, vokal, gitar, keman kaydı alınmaktadır. Klasik müzik türkçe-yabancı pop, indie rock, folk müzik kayıtları alınmaktadır.</span>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:800px">
-        <div class="nav-wrapper" style="height:600px ">
-
-            <ol class="carousel-indicators">
-
-                @{int j = 0;}
-                @foreach (var n in Model.NavbarItems)
-                {
-                    j++;
-                    var active = j == 1 ? "active" : "";
-                    <li data-target="#carouselExampleIndicators" data-slide-to="j" class="@active"></li>
-
-                }
+        </div>
+    </div>
 
 
-                @*<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>*@
+    <div class="index_header">
 
-            </ol>
-            <div class="carousel-inner" role="listbox">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:40%; width:100%; margin:auto">
+            <div class="nav-wrapper">
+                <div class="carousel-inner" role="listbox">
 
 
-                @{ int i = 0;}
-                @foreach (var item in Model.NavbarItems)
-                {
-                    i++;
-                    var active = i == 1 ? "active" : "";
+                    @{ int i = 0;}
+                    @foreach (var item in Model.NavbarItems)
+                    {
+                        i++;
+                        var active = i == 1 ? "active" : "";
 
-                    <div class="carousel-item @active" style="        background-image: url('../../images/@item.ImagePath'); height:800px">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>@item.Title</h3>
-                            <p>@item.Description</p>
+                        <div class="carousel-item @active" style="background-image: url('../../images/@item.ImagePath'); height:500px">
+                            <div class="slider-text" style=" float: left;margin-left:5%;margin-top:10%;font-family:Montserrat ">
+                                <p style=" font-weight:600;font-size:4rem;position:relative;text-align:center;color:white;color: rgba(255,255,255,0.8)">@item.Title</p>
+                                <span style=" font-weight:400;font-size:1.875rem;position:absolute;text-align:center;color:white; color: rgba(255,255,255,0.7);">@item.Description</span>
+                            </div>
                         </div>
-                    </div>
 
+                    }
+
+
+
+
+
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="display:inherit">
+                        <span class="carousel-control-prev-ico" aria-hidden="true"></span>
+                        <span class="sr-only" style="margin-right:500px">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+
+                </div>
+                <ol class="carousel-indicators">
+
+                    @{int j = 0;}
+                    @foreach (var n in Model.NavbarItems)
+                    {
+                        j++;
+                        var active = j == 1 ? "active" : "";
+                        <li data-target="#carouselExampleIndicators" style=" visibility:hidden" data-slide-to="j" class="@active"></li>
+
+                    }
+
+
+                    @*<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>*@
+
+                </ol>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="resposive-slider">
+
+        <div class="video-container">
+            <ul id="autoWidth" class="cs-hidden">
+                <li class="item-e">
+                    <div class="box">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </li>
+                <li class="item-e">
+                    <div class="box">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    @*<div class="video" style="float: center">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Tg6qFqybC7A?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>*@
+    <!-- Marketing Icons Section -->
+    <div class="mix_mastering">
+        <h1 style="color: wheat; margin-left:15%; margin-bottom: -50px; margin-top: 50px">Hizmetlerimiz</h1>
+        <div class="container">
+            <div class="row" style="color: white;margin-top:50px;margin-bottom:50px">
+
+                @foreach (var item in Model.Layouts)
+                {<div class="col-lg-4" style="float:left; margin-top:50px">
+                        <a asp-controller="Home" asp-action="FullLayout" class="card-link" style="color:white" asp-route-id="@item.ID">
+
+
+                            <div class="wrapper">
+                                <div class="single-price" style="background-image: url('../../images/@item.ImagePath');background-size: cover;width:100%">
+                                    <div class="get-center" style="margin-top: 40%;width:100%">
+                                        <p>@item.Title</p>
+
+
+                                        <span>@item.Description</span>
+
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </a>
+
+                    </div>
                 }
 
 
 
-
-
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-
-
             </div>
-
         </div>
+
 
     </div>
 
 
-</div>
+    <br />
+    <br />
+    <br />
 
-<!-- Page Content -->
-<!-- Marketing Icons Section -->
-<div class="mix_mastering">
 
-    <div class="row" style="color:lightblue; margin-top:50px" id="card">
 
-        @foreach (var item in Model.Layouts)
+    <!-- /.row -->
+    <!-- Portfolio Section -->
+    <!-- /.row -->
+    <!-- Features Section -->
+    <div class="container-section">
+
+        @foreach (var item in Model.Identities)
         {
-            <div class="col-lg-4" style="height:550px; width:450px; float:none; margin-top:100px">
 
-                <div class="card h-100" style="background-image: url('../../images/@item.ImagePath'); background-size: cover; width: 450px; height: 800px">
-                    <h4 class="card-header" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">@item.Title</h4>
-                    <div class="card-body">
-                        <p class="card-text">@item.Description</p>
+            <div class="container" style="color:white;margin-top:50px">
+                <div class="row" style=" border-color: transparent; height: 300px;margin-top:50px ">
+                    <div class="col-lg-3">
+                        <img style=" width:200px;height:200px; border-radius:100px; margin-left:50px" src="~/images/@item.ImagePath" />
                     </div>
-                    <div class="card-footer" style=" background-color: rgba(0,0,0,0.5); border-color: transparent">
-                        <a asp-controller="Home" asp-action="FullLayout" asp-route-id="@item.ID" class="btn btn-primary">Daha fazla bilgi için tıklayınız</a>
+
+
+                    <div class="col-lg-9" style="margin-top:25px">
+                        <h4>@item.Name</h4>
+                        <p>ElBerk Müzik Stüdyoları:</p>
+                        <div class="identitysec">
+                            <ul style=" list-style-type: none">
+                                <li>
+                                    <strong>@item.Specifications1</strong>
+                                </li>
+                                <li>@item.Specifications2</li>
+                                <li>@item.Specifications3</li>
+                                <li>@item.Specifications4</li>
+                            </ul>
+
+                        </div>
+
+                        <p>@item.Objective</p>
                     </div>
+
                 </div>
 
             </div>
+
+
+
         }
+
+
     </div>
-
-
-
 
 
 </div>
 
+<div class="login-loader" id="preloader" style="background-color:black">
 
 
+    <div class="loader">
+        <div class="socket">
+            <div class="gel center-gel">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c1 r1">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c2 r1">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c3 r1">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c4 r1">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c5 r1">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c6 r1">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
 
+            <div class="gel c7 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
 
-
-<!-- /.row -->
-<!-- Portfolio Section -->
-<!-- /.row -->
-<!-- Features Section -->
-@foreach (var item in Model.Identities)
-{
-   
-        <div class="container" style="color:wheat; margin-top:150px; background-color:#171515">
-            <div class="row" style="background-color: rgba(0,0,0,0.3); border-color: transparent">
-                <div class="col-lg-4" style="color:wheat">
-                    <h2>@item.Name</h2>
-                    <p>ElBerk Müzik Stüdyoları:</p>
-                    <div class="identitysec">
-                        <ul style=" list-style-type: none">
-                            <li>
-                                <strong>@item.Specifications1</strong>
-                            </li>
-                            <li>@item.Specifications2</li>
-                            <li>@item.Specifications3</li>
-                            <li>@item.Specifications4</li>
-                        </ul>
-
-                    </div>
-
-                    <p>@item.Objective</p>
-                </div>
-                    <div class="col-lg-8" style="float:left; margin-top:10px">
-                        <img style=" width:200px;height:200px; margin-left:50px" src="~/images/@item.ImagePath" />
-                    </div>
-
+            <div class="gel c8 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c9 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c10 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c11 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c12 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c13 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c14 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c15 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c16 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c17 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c18 r2">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c19 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c20 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c21 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c22 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c23 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c24 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c25 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c26 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c28 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c29 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c30 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c31 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c32 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c33 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c34 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c35 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c36 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
+            <div class="gel c37 r3">
+                <div class="hex-brick h1"></div>
+                <div class="hex-brick h2"></div>
+                <div class="hex-brick h3"></div>
+            </div>
 
         </div>
     </div>
-}
+</div>
 
+@section scripts{
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            $(window).load(function () {
+                $('#preloader').fadeOut('slow', function () { $(this).remove(); });
+            });
+
+        });
+    </script>
+
+    <script>
+    $(document).ready(function () {
+            $('#autoWidth').lightSlider({
+                autoWidth: true,
+                loop: true,
+                onSliderLoad: function () {
+                    $('#autoWidth').removeClass('cS-hidden');
+                }
+            });
+        });</script>
+}

@@ -1,11 +1,8 @@
-﻿.card a:hover {
+﻿/*.card a:hover {
     transform: scale(1.1);
-}
+}*/
 .kolom {
     transition: 1s;
  
    
 }
-
-
-

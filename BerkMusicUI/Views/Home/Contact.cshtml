@@ -7,9 +7,7 @@
 
 
 
-
-
-
+<div class="contact" data-scroll-index="4">
     <div class="contact-body">
         <div class="contact" style="background-color:white; ">
 
@@ -28,133 +26,149 @@
                     <!-- Map Column -->
                     <div class="col-sm-8 mb-4 ">
                         <!-- Embedded Google Map -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6359675955728!2d29.038712515413405!3d40.98945147930264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2bf9c6d4c066e569!2sElberk%20M%C3%BCzik!5e0!3m2!1str!2str!4v1596626417155!5m2!1str!2str" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"  width="95%" height="400"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3011.6359675955728!2d29.038712515413405!3d40.98945147930264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2bf9c6d4c066e569!2sElberk%20M%C3%BCzik!5e0!3m2!1str!2str!4v1596626417155!5m2!1str!2str" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
                     </div>
                     <!-- Contact Details Column -->
                     <div class="col-sm-4 mb-4">
                         <h3>İletişim Detayları</h3>
-                        <p style="margin-top:2px">
+                        <p style="margin-top:30px">
                             Fahrettin Kerim Gökay Cad. No:24 Kat:3 Yıldız İş Hanı
                             <br>İstanbul/Kadıköy
                             <br>
                         </p>
                         <p>
-                            <abbr title="Phone">Telefon</abbr>: <a  href="tel://+905454262843">(545) 426-2843</a>
+                            <abbr title="Phone">Telefon</abbr>: <a href="tel://+905454262843">(545) 426-2843</a>
                         </p>
-                        <p>
-                            <abbr title="Email">Email</abbr>:<a href="mailto:elberkmusic@gmail.com">elberkmusic@gmail.com</a>
+                        @*<p>
+                                <abbr title="Email">Email</abbr>:<a href="mailto:elberkmusic@gmail.com">elberkmusic@gmail.com</a>
 
-                        </p>
+                            </p>*@
 
                     </div>
                 </div>
                 <!-- /.row -->
                 <!-- Contact Form -->
                 <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-                <div class="row">
-                    <div class="col-sm-8 mb-4">
-                        <h3>Bize Mesaj Gönderin</h3>
-                        <div id="back">
-                           
-                            @if (ViewBag.Error != null)
-                            {
-                <h5 class="text-danger">@ViewBag.Error</h5>}
-                        </div>
-                        <form asp-action="Contact" asp-controller="Home" method="post">
-                            <div class="container" style="width:100%; background-color:white; float:left; margin-left:30%; margin-top:25px">
-                                <p>
+                @*<div class="row">
+                                        <div class="col-sm-8 mb-4">
+                                            <h3>Bize Mesaj Gönderin</h3>
+                                            <div id="back">
 
-                                    <input asp-for="Name" type="text" required class="form-control" placeholder="Adınız Soyadınız" style="width:72%; height:40px" id="name">
-                                </p>
-                                <p>
-                                    <input asp-for="PhoneNumber" type="text" required class="form-control" placeholder="Telefon Numaranız(5____________)" maxlength="10" style="width:72%; height:40px" id="phone">
-                                </p>
-                                <p>
-                                    <input asp-for="Email" type="email" required class="form-control" placeholder="Email adresiniz" style="width:72%; height:40px" id="email">
-                                </p>
-                                <p>
-                                    <input asp-for="Subject" type="text" required class="form-control" placeholder="Konu giriniz" style="width:72%; height:40px" id="subject">
-                                </p>
-                                <p>
-                                    <textarea asp-for="Message" rows="8" required class="form-control" placeholder="Mesaj giriniz" style="width:72%; height:200px" id="message"></textarea>
-                                </p>
-                                <p>
-                                    <button class="btn btn-success" onclick="Gonder()">Gönder</button>
-                                </p>
+                                                @if (ViewBag.Error != null)
+                                                {
+                                    <h5 class="text-danger">@ViewBag.Error</h5>}
+                                            </div>
+                                            <form asp-action="Contact" asp-controller="Home" method="post">
+                                                <div class="container" style="width:100%; background-color:white; float:left; margin-left:30%; margin-top:25px">
+                                                    <p>
+
+                                                        <input asp-for="Name" type="text" required class="form-control" placeholder="Adınız Soyadınız" style="width:72%; height:40px" id="name">
+                                                    </p>
+                                                    <p>
+                                                        <input asp-for="PhoneNumber" type="text" required class="form-control" placeholder="Telefon Numaranız(5____________)" maxlength="10" style="width:72%; height:40px" id="phone">
+                                                    </p>
+                                                    <p>
+                                                        <input asp-for="Email" type="email" required class="form-control" placeholder="Email adresiniz" style="width:72%; height:40px" id="email">
+                                                    </p>
+                                                    <p>
+                                                        <input asp-for="Subject" type="text" required class="form-control" placeholder="Konu giriniz" style="width:72%; height:40px" id="subject">
+                                                    </p>
+                                                    <p>
+                                                        <textarea asp-for="Message" rows="8" required class="form-control" placeholder="Mesaj giriniz" style="width:72%; height:200px" id="message"></textarea>
+                                                    </p>
+                                                    <p>
+                                                        <button class="btn btn-success" onclick="Gonder()">Gönder</button>
+                                                    </p>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+
+
+                                    <div class="row">
+                                        <div class="col-sm-8 mb-4" style="margin-top:25px">
+                                            <div id="alert" style="background-color:white"></div>
+                                            <figure>
+                                                <pre>
+                    <span id="demo"></span>
+                    </pre>
+                                            </figure>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
-                        </form>
-                    </div>
-
-                </div>
-
-                <br />
-                <br />
-                <br />
-                <br />
+                        </div>
 
 
-                <div class="row">
-                    <div class="col-sm-8 mb-4" style="margin-top:25px">
-                        <div id="alert" style="background-color:white"></div>
-                        <figure>
-                            <pre>
-<span id="demo"></span>
-</pre>
-                        </figure>
 
-                    </div>
-                </div>
+
+
+
+                        <script>
+                            function Gonder()
+                            {
+                                var email = document.getElementById('email').value;
+                                var mesaj = document.getElementById('message').value;
+                                var konu = document.getElementById('subject').value;
+                                var telefon = document.getElementById('phone').value;
+                                var kullanıcı = document.getElementById('name').value;
+
+                                if (kullanıcı == "") {
+                                    var hata = '<div id="alert" class="alert alert-danger"><span>Adınız ve soyadınızı giriniz.</span></div>';
+                                    document.getElementById('alert').innerHTML = hata;
+                                }
+                                else if (telefon == "") {
+                                    var hata = '<div id="alert" class="alert alert-danger"><span>Telefon numaranızı giriniz.</span></div>';
+                                    document.getElementById('alert').innerHTML = hata;
+                                }
+                                else if (email == "") {
+
+                                    var hata = '<div id="alert" class="alert alert-danger"><span>Email adresinizi giriniz.</span></div>';
+                                    document.getElementById('alert').innerHTML = hata;
+                                }
+                                else if (konu == "") {
+                                    var hata = '<div id="alert" class="alert alert-danger"><span>Konu başlığı giriniz.</span></div>';
+                                    document.getElementById('alert').innerHTML = hata;
+                                }
+
+                                else if (mesaj == "") {
+                                    var hata = '<div id="alert" class="alert alert-danger"><span>Mesaj alanını boş geçmeyiniz.</span></div>';
+                                    document.getElementById('alert').innerHTML = hata;
+                                }
+
+
+
+
+
+                        }
+                        </script>*@
+
+
+
+                <!-- /.row -->
+                <!-- /.container -->
             </div>
+
+            <a data-scroll-goto='0'>Back to top</a>
+
 
         </div>
     </div>
-  
-
-
-
-
+</div>
+@section scripts{
 
     <script>
-        function Gonder()
-        {
-            var email = document.getElementById('email').value;
-            var mesaj = document.getElementById('message').value;
-            var konu = document.getElementById('subject').value;
-            var telefon = document.getElementById('phone').value;
-            var kullanıcı = document.getElementById('name').value;
-
-            if (kullanıcı == "") {
-                var hata = '<div id="alert" class="alert alert-danger"><span>Adınız ve soyadınızı giriniz.</span></div>';
-                document.getElementById('alert').innerHTML = hata;
-            }
-            else if (telefon == "") {
-                var hata = '<div id="alert" class="alert alert-danger"><span>Telefon numaranızı giriniz.</span></div>';
-                document.getElementById('alert').innerHTML = hata;
-            }
-            else if (email == "") {
-
-                var hata = '<div id="alert" class="alert alert-danger"><span>Email adresinizi giriniz.</span></div>';
-                document.getElementById('alert').innerHTML = hata;
-            }
-            else if (konu == "") {
-                var hata = '<div id="alert" class="alert alert-danger"><span>Konu başlığı giriniz.</span></div>';
-                document.getElementById('alert').innerHTML = hata;
-            }
-
-            else if (mesaj == "") {
-                var hata = '<div id="alert" class="alert alert-danger"><span>Mesaj alanını boş geçmeyiniz.</span></div>';
-                document.getElementById('alert').innerHTML = hata;
-            }
-
-
-
-
-
-    }
+        $(function () {
+            $.scrollIt();
+        });
     </script>
-
-
-
-<!-- /.row -->
-<!-- /.container -->
+}
