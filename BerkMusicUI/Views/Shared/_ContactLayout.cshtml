@@ -31,7 +31,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="~/sticky-navbar.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="~/css/modern-business.css" rel="stylesheet">
     <link href="~/css/dropdownlist.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
 </head>
 
 
-<body>
+<body style="background-color:white;margin-bottom:50px">
     <!-- Google Tag Manager Elberk Müzik by AdresGezgini -->
     <noscript>
         <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NRMFTVG"
@@ -56,50 +56,52 @@
         })(window, document, 'script', 'dataLayer', 'GTM-NRMFTVG');</script>
     <!-- End Google Tag Manager Elberk Müzik by AdresGezgini -->
     <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark  fixed-top" style=" background-color: rgba(0,0,0,0.8); border-color: transparent">
-        <div class="container">
-            <a class="navbar-brand" href="/Home/Index">ElBerk Müzik  <img src="~/images/StormLogo.png" style="width:20px; height:20px" /></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    @*<li class="nav-item">
-            <a class="nav-link" href="about.html">Hakkımızda</a>
-        </li>*@
+    <nav-header style="min-height:10vh">
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/AboutUs">Hakkımızda</a>
+        <a href="/Home/Index" class="logo">ELBERK MÜZİK</a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Portfolio/Photos">Portfolyo</a>
+        <ul class="navlinks" style="margin-top:20px">
+            <li class="navlink"><a href="/Home/AboutUs">Hakkımızda</a></li>
+            <li class="navlink">
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/Referances">Referanslar</a>
+                <a href="#" style="display:inline-block">Portfolyo<i class="fa fa-caret-down"></i></a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/Contact">İletişim</a>
-                    </li>
+                <ul class="dropdownlist">
+                    <li class="dropdownlink"><a href="/Portfolio/Photos">Fotoğraflar</a></li>
+                    <li class="dropdownlink"><a href="/Portfolio/Video">Videolar</a></li>
 
                 </ul>
-            </div>
+
+
+            </li>
+            <li class="navlink"><a href="/Home/Referances">Referanslar</a></li>
+            <li class="navlink"><a href="/Home/Contact">İletişim</a></li>
+
+
+        </ul>
+        <div class="burger" style="margin-left:100%">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+
+
+
         </div>
-    </nav>
+    </nav-header>
 
-    <div class="body" style="background-color:white">
+    <div class="contact-body" style="background-color:white">
+        <section class="banner">
+            @RenderBody()
+            @RenderSection("scripts", false)
+        </section>
 
-        @RenderBody()
-        @RenderSection("scripts", false)
 
 
     </div>
 </body>
 </html>
 
-<footer class="py-5 bg-dark" style="text-align:center">
+<footer class="py-5 bg-dark" style="text-align:center ;margin-bottom:0px;left:0px;bottom:0px;right:0px;position:fixed;height:150px">
 
     <div class="col-lg-12">
         <div class="container">
@@ -128,13 +130,20 @@
 <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/e0a62eec48.js" crossorigin="anonymous"></script>
 
+<script src="~/sticky-navbar.js"></script>
+<script type="text/javascript">
+    window.addEventListener("scroll", function () {
+        var header = this.document.querySelector("nav-header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('ul li').click(function () {
+            $(this).toggleClass('active');
+        });
+    });</script>
 
 
 
 
-
-
-
-
-<!-- /.row -->
-<!-- /.container -->

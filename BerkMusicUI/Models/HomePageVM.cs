@@ -14,6 +14,7 @@ namespace BerkMusicUI.Models
 
         public List<Layout> Layouts { get; set; }
 
+        public List<HomePageVideo> HomePageVideos { get; set; }
 
     }
 }

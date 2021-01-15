@@ -22,9 +22,9 @@ namespace BerkMusicUI.Controllers
         private readonly IFullLayoutService fullLayoutService;
         private readonly IReferanceService referanceService;
         private readonly IInformationService informationService;
-        private readonly IVideoService videoService;
+        private readonly IHomePageVideoService homePageVideoService;
 
-        public HomeController(IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService, IFullLayoutService fullLayoutService, IReferanceService referanceService, IInformationService informationService,IVideoService videoService)
+        public HomeController(IIdentityService identityService, INavbarService navbarService, ILayoutService layoutService, IPriceService priceService, IFullLayoutService fullLayoutService, IReferanceService referanceService, IInformationService informationService,IHomePageVideoService homePageVideoService)
         {
            
             this.identityService = identityService;
@@ -34,7 +34,7 @@ namespace BerkMusicUI.Controllers
             this.fullLayoutService = fullLayoutService;
             this.referanceService = referanceService;
             this.informationService = informationService;
-            this.videoService = videoService;
+            this.homePageVideoService = homePageVideoService;
         }
         public IActionResult Index()
         {
@@ -42,6 +42,7 @@ namespace BerkMusicUI.Controllers
             homePageVM.Identities = identityService.GetActive();
             homePageVM.NavbarItems = navbarService.GetActive();
             homePageVM.Layouts = layoutService.GetActive();
+            homePageVM.HomePageVideos = homePageVideoService.GetActive();
             return View(homePageVM);
         }
         public IActionResult Referances()

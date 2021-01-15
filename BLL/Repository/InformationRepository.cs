@@ -25,7 +25,7 @@ namespace BLL.Repository
 
         public List<Information> GetActive()
         {
-            return context.Informations.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.Informations.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public Information GetById(Guid id)

@@ -25,24 +25,24 @@
 
                             }
                         </div>
-                            </div>
+                    </div>
                     <form role="form" asp-action="Edit" asp-controller="Video" method="post" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Başlık</label>
                                 <input asp-for="Title" type="text" class="form-control" placeholder="Metin Giriniz">
                             </div>
-                         
-                                <div class="form-group">
-                                    <label>Açıklama</label>
-                                    <textarea asp-for="Explanation" type="text" class="form-control" placeholder="Konu" style="width:100%; height:300px" ></textarea>
-                                </div>
+
+                            <div class="form-group">
+                                <textarea asp-for="Explanation" type="text" class="form-control" placeholder="Konu" style="width:100%; height:300px" maxlength="259" id="textarea"></textarea>
+                                <div class="red-colored" style="color:red;font-weight:bold "><span id="rchars">259</span> karakter kaldı.</div>
+                            </div>
                             <div class="form-group">
                                 <label>src Link(URL)</label>
                                 <input asp-for="VideoPath" type="text" class="form-control" placeholder="URL Giriniz">
                             </div>
 
-</div>
+                        </div>
 
                         <!-- /.box-body -->
 
@@ -62,22 +62,27 @@
 @section scripts{
     <script src="~/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script>
-    $(document).ready(function () {
-        bsCustomFileInput.init();
-    });
+        $(document).ready(function () {
+            bsCustomFileInput.init();
+        });
     </script>
-
+    <script>
+    var maxLength = 259;
+        $('textarea').keyup(function () {
+            var textlen = maxLength - $(this).val().length;
+            $('#rchars').text(textlen);
+        });</script>
     @*<script>
-    function checkChar() {
-            var allowedChar = 250;
-            var content = document.getElementById("content");
-            var contLength = content.value.length;
+        function checkChar() {
+                var allowedChar = 250;
+                var content = document.getElementById("content");
+                var contLength = content.value.length;
 
-            if (contLength > allowedChar) {
-                content.value = content.value.substring(0, allowedChar);
-                document.getElementById("report").innerHTML = "<span style='color:red;'>UYARI: En fazla " + allowedChar + " karakter girebilirsiniz</span>";
-        }
-            
-        }</script>*@
+                if (contLength > allowedChar) {
+                    content.value = content.value.substring(0, allowedChar);
+                    document.getElementById("report").innerHTML = "<span style='color:red;'>UYARI: En fazla " + allowedChar + " karakter girebilirsiniz</span>";
+            }
+
+            }</script>*@
 
 }

@@ -48,6 +48,7 @@ namespace BerkMusicUI
             services.AddTransient<ICategoryService, CategoryRepository>();
             services.AddTransient<ICommentService, CommentRepository>();
             services.AddTransient<IVideoService, VideoRepository>();
+            services.AddTransient<IHomePageVideoService, HomePageVideoRepository>();
           
 
             //Identity

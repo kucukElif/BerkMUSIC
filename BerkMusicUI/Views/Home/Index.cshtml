@@ -12,20 +12,20 @@
 <link href="~/loader.css" rel="stylesheet" />
 <link href="~/responsiveslider.css" rel="stylesheet" />
 <link href="~/css/PriceList.css" rel="stylesheet" />
-<div class="home-page" data-scroll-index="0" @*style="    background-image: url('../images/WhatsApp Image 2021-01-10 at 19.18.53.jpeg'); background-size:cover;"*@>
-    <div class="error_container">
-        <div class="error-wrapper">
-            <span style=" word-break:break-word">UYARI! Bu Stüdyo RAP Türkü Müzik Kayıtları Almamaktadır. Stüdyomuzda piyano, vokal, gitar, keman kaydı alınmaktadır. Klasik müzik türkçe-yabancı pop, indie rock, folk müzik kayıtları alınmaktadır.</span>
+<div class="home-page">
+    @*<div class="error_container">
+            <div class="error-wrapper">
+                <span style=" word-break:break-word">UYARI! Bu Stüdyo RAP Türkü Müzik Kayıtları Almamaktadır. Stüdyomuzda piyano, vokal, gitar, keman kaydı alınmaktadır. Klasik müzik türkçe-yabancı pop, indie rock, folk müzik kayıtları alınmaktadır.</span>
 
-        </div>
-    </div>
+            </div>
+        </div>*@
 
 
     <div class="index_header">
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:40%; width:100%; margin:auto">
             <div class="nav-wrapper">
-                <div class="carousel-inner" role="listbox">
+                <div class="carousel-inner" role="listbox" >
 
 
                     @{ int i = 0;}
@@ -36,7 +36,7 @@
 
                         <div class="carousel-item @active" style="background-image: url('../../images/@item.ImagePath'); height:500px">
                             <div class="slider-text" style=" float: left;margin-left:5%;margin-top:10%;font-family:Montserrat ">
-                                <p style=" font-weight:600;font-size:4rem;position:relative;text-align:center;color:white;color: rgba(255,255,255,0.8)">@item.Title</p>
+                                <p style=" font-weight:600;font-size:4rem;position:relative;text-align:center;color:white;color: rgba(255,255,255,0.8);margin-top:25%">@item.Title</p>
                                 <span style=" font-weight:400;font-size:1.875rem;position:absolute;text-align:center;color:white; color: rgba(255,255,255,0.7);">@item.Description</span>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
 
 
                 </div>
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators" >
 
                     @{int j = 0;}
                     @foreach (var n in Model.NavbarItems)
@@ -70,9 +70,7 @@
                     }
 
 
-                    @*<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>*@
+             
 
                 </ol>
 
@@ -90,36 +88,16 @@
 
         <div class="video-container">
             <ul id="autoWidth" class="cs-hidden">
-                <li class="item-e">
-                    <div class="box">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </li>
-                <li class="item-e">
-                    <div class="box">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </li>
-                <li class="item-e">
-                    <div class="box">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </li>
-                <li class="item-e">
-                    <div class="box">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </li>
-                <li class="item-e">
-                    <div class="box">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </li>
-                <li class="item-e">
-                    <div class="box">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/w8Z_YjVTwz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </li>
+                @foreach (var item in Model.HomePageVideos)
+                {
+                    <li class="item-e">
+                        <div class="box">
+                            <iframe width="100%" height="200" src="@item.VideoPath" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </li>
+
+                }
+              
 
             </ul>
         </div>
@@ -215,7 +193,12 @@
 
             </div>
 
-
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
         }
 

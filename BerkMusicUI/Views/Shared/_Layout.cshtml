@@ -14,9 +14,9 @@
     <meta name="google-site-verification" content="WEHtadMgDCk1ABXIhy3YR4NzyRFyK0_GAHuN_KIBgTg" />
     <link rel="stylesheet" type="test/css" href="style.css" />
     <link rel="stylesheet" href="https://mxcdn.bootstrapcdn.com/font-awesomw/4.7.0/css/font-awesome.min.css" />
-
+    <link href="~/sticky-navbar.css" rel="stylesheet" />
     <link href="~/css/media.css" rel="stylesheet" />
- 
+
     <title>
         ELBERK MÜZİK
     </title>
@@ -32,7 +32,7 @@
 
 </head>
 
-<body style="background-color:black" >
+<body style="background-color:black">
     <!-- Google Tag Manager Elberk Müzik by AdresGezgini -->
     <noscript>
         <iframe src="//www.googletagmanager.com/ns.html?id=GTM-NRMFTVG"
@@ -48,61 +48,47 @@
                     '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-NRMFTVG');</script>
     <!-- End Google Tag Manager Elberk Müzik by AdresGezgini -->
-    <!-- Navigation -->
+  
 
+    <nav-header style="min-height:10vh">
 
+        <a href="/Home/Index" class="logo">ELBERK MÜZİK</a>
 
+        <ul class="navlinks" style="margin-top:20px">
+            <li class="navlink"><a href="/Home/AboutUs">Hakkımızda</a></li>
+            <li class="navlink">
 
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark  fixed-top" style=" background-color: rgba(0,0,0,0.8); border-color: transparent">
-        <div class="container">
-            <a class="navbar-brand active" href="/Home/Index" data-scroll-nav="0">ElBerk Müzik <img src="~/images/StormLogo.png" style="width:20px; height:20px" /></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <a href="#" style="display:inline-block">Portfolyo<i class="fa fa-caret-down"></i></a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Home/AboutUs" data-scroll-nav="1">Hakkımızda</a>
-
-                    </li>
-
-
-                 
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Portfolyo
-
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog"style="  background-color: rgba(0,0,0,0.8); border-color: transparent;">
-                        <a class="dropdown-item" onMouseOver="this.style.color='white'"
-   onMouseOut="this.style.color = 'rgba(255,255,255,0.7)'" style="color: rgba(255,255,255,0.7)" href="/Portfolio/Photos">Fotoğraflar</a>
-                        <a class="dropdown-item" onMouseOver="this.style.color='white'"
-   onMouseOut="this.style.color='rgba(255,255,255,0.7)'" style="color: rgba(255,255,255,0.7)" href="/Portfolio/Video">Videolar</a>
-                    </div>
-                    </li>
-                    
-                    <li class="nav-item">
-                    <a class="nav-link" href="/Home/Referances" data-scroll-nav="3">Referanslar</a>
-
-                    </li>
-                    @*<li class="nav-item">
-            <a class="nav-link" href="/Home/PriceList">Fiyatlarımız</a>
-
-        </li>*@
-
-                    <li class="nav-item">
-                    <a class="nav-link" href="/Home/Contact" data-scroll-nav="4">İletişim</a>
-                    </li>
+                <ul class="dropdownlist">
+                    <li class="dropdownlink"><a href="/Portfolio/Photos">Fotoğraflar</a></li>
+                    <li class="dropdownlink"><a href="/Portfolio/Video">Videolar</a></li>
 
                 </ul>
-            </div>
-        </div>
-    </nav>
 
+
+            </li>
+            <li class="navlink"><a href="/Home/Referances">Referanslar</a></li>
+            <li class="navlink"><a href="/Home/Contact">İletişim</a></li>
+
+
+        </ul>
+        <div class="burger" style="margin-left:100%">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+
+
+
+        </div>
+    </nav-header>
     <div class="pagebody">
-        @RenderBody()
-        @RenderSection("scripts", false)
+
+        <section class="banner">
+            @RenderBody()
+            @RenderSection("scripts", false)
+        </section>
+
     </div>
     <!-- /.container -->
     <!-- Footer -->
@@ -141,7 +127,7 @@
 
 </html>
 
-<footer class="py-5 bg-dark" style="text-align:center">
+<footer class="py-5 bg-dark" style="text-align:center ;margin-bottom:0px;left:0px;bottom:0px;right:0px;height:150px">
 
     <div class="col-lg-12">
         <div class="container">
@@ -165,7 +151,6 @@
     <!-- /.container -->
 </footer>
 
-<!-- Bootstrap core JavaScript -->
 
 
 <script src='~/jquery-1.10.2.min.js' type='text/javascript'></script>
@@ -174,5 +159,15 @@
 <script src="~/lightslider-master/dist/js/lightslider.js"></script>
 <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/e0a62eec48.js" crossorigin="anonymous"></script>
-
-
+<script src="~/sticky-navbar.js"></script>
+<script type="text/javascript">
+    window.addEventListener("scroll", function () {
+        var header = this.document.querySelector("nav-header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+</script>
+<script>$(document).ready(function () {
+    $('ul li').click(function () {
+            $(this).toggleClass('active');
+        });
+    });</script>

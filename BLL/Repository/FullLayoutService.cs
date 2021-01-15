@@ -36,7 +36,7 @@ namespace BLL.Repository
 
         public List<FullLayout> GetActive()
         {
-            return context.FullLayouts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.FullLayouts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public FullLayout GetById(Guid id)

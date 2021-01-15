@@ -24,7 +24,7 @@ namespace BLL.Repository
 
         public List<NavbarItem> GetActive()
         {
-            return context.NavbarItems.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.NavbarItems.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public NavbarItem GetById(Guid id)

@@ -22,9 +22,9 @@
                             </div>
                             <div class="form-group">
                                 <label>Açıklama</label>
-                                <textarea asp-for="Explanation" type="text" class="form-control" placeholder="Konu" style="width:100%; height:300px"></textarea>
-                                <div id="report"></div>
-
+                                <textarea asp-for="Explanation" type="text" class="form-control" placeholder="Konu" style="width:100%; height:300px" maxlength="259" id="textarea"></textarea>
+                                <div class="red-colored"style="color:red;font-weight:bold "><span id="rchars" >259</span> karakter kaldı.</div>
+                                
                             </div>
                             <div class="form-group">
                                 <label>src Link(URL)</label>
@@ -56,6 +56,11 @@
         bsCustomFileInput.init();
     });
     </script>
+<script>var maxLength = 259;
+    $('textarea').keyup(function () {
+        var textlen = maxLength - $(this).val().length;
+        $('#rchars').text(textlen);
+    });</script>
 @*<script>
     
         function checkChar() {

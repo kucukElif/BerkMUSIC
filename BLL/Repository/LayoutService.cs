@@ -32,7 +32,7 @@ namespace BLL.Repository
 
         public List<Layout> GetActive()
         {
-            return context.Layouts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.Layouts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
         public List<FullLayout> GetFullLayout()
         {

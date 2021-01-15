@@ -1,0 +1,51 @@
+﻿@model HomePageVideo
+@{
+    ViewData["Title"] = "Anasayfa Video Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form role="form" asp-action="Create" asp-controller="HomeVideo" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            
+                            <div class="form-group">
+                                <label>src Link(URL)</label>
+                                <input asp-for="VideoPath" type="text" class="form-control" style=" height:50px" placeholder="URL Giriniz" />
+                            </div>
+
+
+                        </div>
+
+                        <!-- /.box-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" onclick="Submit()" class="btn btn-primary">Ekle</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+                <!-- Form Element sizes -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+    </script>
+  
+
+}

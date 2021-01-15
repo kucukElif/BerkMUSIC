@@ -31,7 +31,7 @@ namespace BLL.Repository
 
         public List<Post> GetActive()
         {
-            return context.Posts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.Posts.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public Post GetById(Guid id)

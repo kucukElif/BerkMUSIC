@@ -30,7 +30,7 @@ namespace BLL.Repository
 
         public List<Referance> GetActive()
         {
-            return context.Referances.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.Referances.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public Referance GetById(Guid id)

@@ -24,7 +24,7 @@ namespace BLL.Repository
 
         public List<Photo> GetActive()
         {
-           return context.Photos.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+           return context.Photos.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public Photo GetById(Guid id)

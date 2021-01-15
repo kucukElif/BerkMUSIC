@@ -32,7 +32,7 @@ namespace BLL.Repository
 
         public List<Video> GetActive()
         {
-            return context.Videos.Where(x => x.Status == DAL.Entity.Enum.Status.Active).ToList();
+            return context.Videos.Where(x => x.Status == DAL.Entity.Enum.Status.Active).OrderByDescending(x=>x.CreatedDate).ToList();
         }
 
         public Video GetById(Guid id)
